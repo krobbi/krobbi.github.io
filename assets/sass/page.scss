@@ -1,0 +1,26 @@
+// Landmarks are 45em wide and centered on the page with 1em of padding.
+main, footer {
+	width: 45em;
+	margin: auto;
+	padding: 1em;
+}
+
+// Footer text is centered.
+footer {
+	text-align: center;
+}
+
+// Headings and paragraphs have a 1em top and bottom margin.
+h1, h2, p {
+	margin: 1em 0;
+}
+
+// Use responsive page widths from 40em through 20em in multiples of 5em.
+@for $i from 8 through 4 {
+	// Try to have at least a 5em margin on either side.
+	@media screen and (max-width: (($i + 2) * 5em)) {
+		main, footer {
+			width: $i * 5em;
+		}
+	}
+}

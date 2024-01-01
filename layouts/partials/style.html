@@ -1,0 +1,3 @@
+{{ $style := resources.Get ( print "sass/" . ".scss" ) | toCSS | minify }}
+{{- $style = slice $style | resources.Concat ( print "css/" . ".css" ) -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">

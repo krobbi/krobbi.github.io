@@ -1,0 +1,9 @@
+baseURL: https://krobbi.github.io/
+languageCode: en-us
+title: Krobbizoid
+
+# Disable unused blogging page kinds:
+disableKinds:
+  - rss
+  - taxonomy
+  - term

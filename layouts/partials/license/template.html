@@ -1,0 +1,14 @@
+<article aria-labelledby="{{ . }}">
+	{{- $name := index site.Data.licenses.names . -}}
+	<h2 id="{{ . }}">{{ $name }}</h2>
+	<p>
+		{{- index site.Data.licenses.info . -}}
+	</p>
+	{{- $license := partial "license/resource.html" ( dict
+		"id" .
+		"year" "<Copyright Year>"
+		"holder" "<Copyright Holders>"
+		"slug" "template"
+	) -}}
+	<a href="{{ $license.RelPermalink }}">{{ $name }} (Template)</a>
+</article>

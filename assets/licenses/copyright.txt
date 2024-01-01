@@ -1,0 +1,2 @@
+Copyright (c) {{ year }} {{ holder }}
+All rights reserved.

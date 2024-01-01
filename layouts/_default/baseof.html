@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	<head>
+		{{- partial "head.html" . }}
+		{{- partial "style.html" "main" }}
+		{{- block "head" . }}
+		{{- end -}}
+	</head>
+	<body>
+		<main role="main">
+			{{- .Content -}}
+		</main>
+		<footer role="contentinfo">
+			{{- partial "footer.html" . -}}
+		</footer>
+	</body>
+</html>
