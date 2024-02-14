@@ -21,6 +21,7 @@ templates:
 texts:
   # 2024:
   - copyright 2024
+  - mit 2024
   
   # 2023:
   - mit 2023-2024
