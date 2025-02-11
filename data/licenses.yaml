@@ -1,5 +1,4 @@
 names:
-  copyright: Copyright
   kgl: Krobbizoid Game License
   kpogdl: Krobbizoid Proprietary-Open Game Development License
   mit: MIT License
@@ -20,7 +19,6 @@ templates:
   - kgl
 texts:
   # 2024:
-  - copyright 2024
   - kgl 2024
   - mit 2024
   

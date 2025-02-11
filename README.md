@@ -1,6 +1,6 @@
 # krobbi.github.io
 _My GitHub Pages website._  
-__Copyright &copy; 2024 Chris Roberts__ (Krobbizoid).  
+__Copyright &copy; 2024-2025 Chris Roberts__ (Krobbizoid).  
 _All rights reserved._
 
 # Contents
@@ -29,10 +29,9 @@ with Dart Sass is required. This is the only dependency. The site is
 automatically regenerated and deployed when pushed to GitHub.
 
 # License
-The site's content is released under an all rights reserved license:  
-https://krobbi.github.io/license/2024/copyright.txt
+The site's content is released under an all rights reserved license.
 
-This repository may be used without permission or credit as a reference for
-building websites with unique content.
+This repository may be used as a reference for building websites without credit
+or permission.
 
 See [LICENSE.txt](./LICENSE.txt) for a full copy of the license text.
