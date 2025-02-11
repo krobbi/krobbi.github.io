@@ -18,6 +18,9 @@ templates:
   - kpogdl
   - kgl
 texts:
+  # 2025:
+  - mit 2025
+  
   # 2024:
   - kgl 2024
   - mit 2024
