@@ -23,15 +23,12 @@ The site is fully static, meaning all of its pages are stored on the server
 with their contents fully rendered. This improves page load performance and
 compatibility at the expense of storing larger files with duplicate data.
 
-The static files are generated from this repository using
-[Hugo](https://gohugo.io). Either the extended edition or the standard edition
-with Dart Sass is required. This is the only dependency. The site is
-automatically regenerated and deployed when pushed to GitHub.
+The site's content is generated using the [Python](https://www.python.org)
+script `generate.py` in the root of this repository. This script is not yet
+fully implemented, and only prints a hello world message.
 
 # License
-The site's content is released under an all rights reserved license.
-
-This repository may be used as a reference for building websites without credit
-or permission.
+The site's content is released under an all rights reserved license, however,
+the code used for generating the site may be used freely.
 
 See [LICENSE.txt](./LICENSE.txt) for a full copy of the license text.
