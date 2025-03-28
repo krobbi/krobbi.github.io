@@ -25,7 +25,7 @@ compatibility at the expense of storing larger files with duplicate data.
 
 The site's content is generated using the [Python](https://www.python.org)
 script `generate.py` in the root of this repository. The script is not yet
-fully implemented, and currently creates the directory `out/`.
+fully implemented, and currently creates and cleans the directory `out/`.
 
 # License
 The site's content is released under an all rights reserved license, however,
