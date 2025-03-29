@@ -1,7 +1,35 @@
 import re
 
+from pathlib import Path
+
 _TAG_PATTERN = re.compile("{\\s*(\\w+)\\s*}")
 """A pattern matching template tags and capturing their names."""
+
+class Cache:
+    """A cache of templates loaded from disk."""
+    
+    def __init__(self, base_dir: Path):
+        """Initialize the template cache from its base directory."""
+        
+        self._base_dir = base_dir
+        """The base directory for loading templates."""
+        
+        self._loaded_templates: dict[str, _Template] = {}
+        """The currently loaded templates."""
+    
+    
+    def get(self, name: str):
+        """Get a template from its name."""
+        
+        if name in self._loaded_templates:
+            return self._loaded_templates[name]
+        
+        with open(self._base_dir / name) as file:
+            source = file.read()
+        
+        self._loaded_templates[name] = _Template(source)
+        return self._loaded_templates[name]
+
 
 class _Template:
     """A text template with tags that can be replaced or appended to."""
@@ -88,5 +116,11 @@ def test():
     # Replaced tags cannot be appended to.
     text = template.replace("list", "replaced").append("list", "fail").render()
     assert text == "[replaced]"
+    
+    # Templates can be loaded from disk.
+    cache = Cache(Path("templates"))
+    template = cache.get("text_test.txt")
+    text = template.replace("source", "disk").render().strip()
+    assert text == "Loaded from disk!"
     
     print("Template tests passed!")
