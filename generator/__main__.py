@@ -5,6 +5,8 @@ from pathlib import Path
 
 import sass
 
+import templates
+
 def main():
     output_dir = Path("out")
     
@@ -24,4 +26,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    #main()
+    templates.test()
