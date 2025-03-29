@@ -15,9 +15,15 @@ class _Template:
     
     
     def replace(self, tag: str, text: str):
-        """Return a copy with a tag replaced with text."""
+        """Return a copy with a tag replaced by text."""
         
         return _Template(self._source.replace("{" + tag + "}", text))
+    
+    
+    def append(self, tag: str, text: str):
+        """Return a copy with text appended to a tag."""
+        
+        return self.replace(tag, text + "{" + tag + "}")
     
     
     def render(self):
@@ -73,5 +79,14 @@ def test():
     # JSON objects are not removed when rendered.
     template = _Template("{value:{value}}{}")
     assert template.replace("value", "123").render() == "{value:123}{}"
+    
+    # Tags can be appended to in the expected order.
+    template = _Template("[{list}]")
+    text = template.append("list", "foo").append("list", ", bar").render()
+    assert text == "[foo, bar]"
+    
+    # Replaced tags cannot be appended to.
+    text = template.replace("list", "replaced").append("list", "fail").render()
+    assert text == "[replaced]"
     
     print("Template tests passed!")
