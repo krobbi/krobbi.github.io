@@ -14,6 +14,12 @@ class _Template:
         """The template's internal source text."""
     
     
+    def replace(self, tag: str, text: str):
+        """Return a copy with a tag replaced with text."""
+        
+        return _Template(self._source.replace("{" + tag + "}", text))
+    
+    
     def render(self):
         """Return the template as text with any undefined tags
         removed.
@@ -48,5 +54,24 @@ def test():
     
     # Templates are not mutated after rendering.
     assert template._source == "Hello, {undefined}!" # type: ignore
+    
+    # Tags can be replaced.
+    template = _Template("I like {fruit}.")
+    assert template.replace("fruit", "apples").render() == "I like apples."
+    
+    # Replacing tags creates a copy instead of mutating the template.
+    assert template.render() == "I like ."
+    
+    # The original template can be reused because of this.
+    assert template.replace("fruit", "bananas").render() == "I like bananas."
+    
+    # All tags with the same name are replaced at once.
+    template = _Template("{adjective} templates are {adjective}")
+    text = template.replace("adjective", "reusable").render()
+    assert text == "reusable templates are reusable"
+    
+    # JSON objects are not removed when rendered.
+    template = _Template("{value:{value}}{}")
+    assert template.replace("value", "123").render() == "{value:123}{}"
     
     print("Template tests passed!")
