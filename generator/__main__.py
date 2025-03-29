@@ -22,5 +22,6 @@ def main():
         with open((css_dir / entry.name).with_suffix(".css"), "w") as file:
             file.write(css)
 
+
 if __name__ == "__main__":
     main()
