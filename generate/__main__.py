@@ -5,9 +5,9 @@ from pathlib import Path
 
 import sass
 
-import templates
-
 def main():
+    """Generate the site's content."""
+    
     output_dir = Path("out")
     
     if os.path.exists(output_dir):
@@ -26,5 +26,4 @@ def main():
 
 
 if __name__ == "__main__":
-    #main()
-    templates.test()
+    main()
