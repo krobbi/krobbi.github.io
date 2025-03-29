@@ -1,28 +1,20 @@
 import os
-import shutil
 
 from pathlib import Path
 
 import sass
 
+import output
+
 def main():
     """Generate the site's content."""
     
-    output_dir = Path("out")
+    output.reset()
     
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
-    
-    shutil.copytree("static", output_dir)
-    
-    css_dir = output_dir / "css"
-    os.mkdir(css_dir)
-    
-    for entry in os.scandir("scss"):
-        css = sass.compile(filename=entry.path, output_style="compressed")
-        
-        with open((css_dir / entry.name).with_suffix(".css"), "w") as file:
-            file.write(css)
+    for entry in os.scandir("styles"):
+        text = sass.compile(filename=entry.path, output_style="compressed")
+        path = (Path("css") / entry.name).with_suffix(".css")
+        output.write(text, path)
 
 
 if __name__ == "__main__":
