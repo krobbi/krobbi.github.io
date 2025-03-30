@@ -59,17 +59,44 @@ def _generate_page(path: str):
         .replace("content", content)
     )
     
+    template = _apply_title(fields, template)
+    template = _apply_description(fields, template)
+    template = _apply_robots(fields, template)
+    output.write(template.render(), path)
+
+
+def _apply_title(fields: dict[str, str], template: Template):
+    """Apply a page title from fields to a template."""
+    
     title = fields.get("title")
     
-    if title is not None:
-        template = template.prepend("title", " | ").prepend("title", title)
+    if title is None:
+        return template
+    
+    return template.prepend("title", " | ").prepend("title", title)
+
+
+def _apply_description(fields: dict[str, str], template: Template):
+    """Apply a page description from fields to a template."""
     
     description = fields.get("description")
     
-    if description is not None:
-        template = template.replace("description", description)
+    if description is None:
+        return template
     
-    output.write(template.render(), path)
+    return template.replace("description", description)
+
+
+def _apply_robots(fields: dict[str, str], template: Template):
+    """Apply a robots directive from fields to a template."""
+    
+    robots = fields.get("robots")
+    
+    if robots is None:
+        return template
+    
+    robots = templates.get("robots.html").replace("directive", robots).render()
+    return template.replace("robots", robots)
 
 
 def _get_template():
