@@ -1,6 +1,13 @@
 import os
 
 from . import output
+from . import styles
+from . import templates
+
+from .templates import Template
+
+_template: Template | None = None
+"""The base template for all pages."""
 
 def generate_pages():
     """Generate the site's pages."""
@@ -35,4 +42,21 @@ def _generate_page(path: str):
             elif not is_parsing_fields:
                 content += line + "\n"
     
-    output.write(content, path)
+    template = _get_template().append("url", path.removesuffix("index.html"))
+    output.write(template.replace("content", content).render(), path)
+
+
+def _get_template():
+    """Return the base template for all pages."""
+    
+    global _template
+    
+    if _template is None:
+        _template = (
+            templates.get("base.html")
+            .prepend("title", "Krobbizoid")
+            .append("url", "https://krobbi.github.io/")
+            .append("styles", styles.get_html("main"))
+        )
+    
+    return _template

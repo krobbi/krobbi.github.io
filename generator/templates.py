@@ -8,7 +8,7 @@ _TEMPLATES_DIR = Path("templates")
 _TAG_PATTERN = re.compile("{\\s*(\\w+)\\s*}")
 """A pattern matching template tags and capturing their names."""
 
-class _Template:
+class Template:
     """A text template with tags that can be replaced or appended to."""
     
     def __init__(self, source: str):
@@ -22,7 +22,7 @@ class _Template:
     def replace(self, tag: str, text: str):
         """Return a copy with a tag replaced by text."""
         
-        return _Template(self._source.replace("{" + tag + "}", text))
+        return Template(self._source.replace("{" + tag + "}", text))
     
     
     def append(self, tag: str, text: str):
@@ -45,7 +45,7 @@ class _Template:
         return _TAG_PATTERN.sub("", self._source)
 
 
-_loaded_templates: dict[str, _Template] = {}
+_loaded_templates: dict[str, Template] = {}
 """A map of template names to loaded templates."""
 
 def get(name: str):
@@ -55,6 +55,6 @@ def get(name: str):
         with open(_TEMPLATES_DIR / name) as file:
             source = file.read()
         
-        _loaded_templates[name] = _Template(source)
+        _loaded_templates[name] = Template(source)
     
     return _loaded_templates[name]

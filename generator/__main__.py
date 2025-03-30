@@ -1,10 +1,10 @@
-#from . import output
+from . import output
 from . import pages
 
 def main():
     """Generate the site's content."""
     
-    #output.reset()
+    output.reset()
     pages.generate_pages()
 
 
