@@ -1,19 +1,11 @@
-from . import output
-from . import styles
-
-def generate_style(name: str):
-    """Generate a style by its name and print its HTML code."""
-    
-    print(styles.get_html(name).strip())
-
+#from . import output
+from . import pages
 
 def main():
     """Generate the site's content."""
     
-    output.reset()
-    generate_style("main")
-    generate_style("home")
-    generate_style("page")
+    #output.reset()
+    pages.generate_pages()
 
 
 if __name__ == "__main__":
