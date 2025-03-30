@@ -1,6 +1,7 @@
 import os
 
 from . import output
+from . import renderer
 from . import styles
 from . import templates
 
@@ -40,7 +41,7 @@ def _generate_page(path: str):
             
             if line == "---":
                 is_parsing_fields = not is_parsing_fields
-            if is_parsing_fields:
+            elif is_parsing_fields:
                 pair = line.split(":", 1)
                 
                 if len(pair) == 2:
@@ -50,6 +51,7 @@ def _generate_page(path: str):
             else:
                 content += line + "\n"
     
+    content = renderer.render_content(content, path)
     style = "home" if path == "index.html" else "page"
     
     template = (
