@@ -31,6 +31,7 @@ def _generate_page(path: str):
     """Generate a page by its path."""
     
     is_parsing_fields = False
+    fields: dict[str, str] = {}
     content = ""
     
     with open("pages/" + path) as file:
@@ -39,7 +40,14 @@ def _generate_page(path: str):
             
             if line == "---":
                 is_parsing_fields = not is_parsing_fields
-            elif not is_parsing_fields:
+            if is_parsing_fields:
+                pair = line.split(":", 1)
+                
+                if len(pair) == 2:
+                    key = pair[0].strip()
+                    value = pair[1].strip()
+                    fields[key] = value
+            else:
                 content += line + "\n"
     
     style = "home" if path == "index.html" else "page"
@@ -50,6 +58,16 @@ def _generate_page(path: str):
         .append("styles", styles.get_html(style))
         .replace("content", content)
     )
+    
+    title = fields.get("title")
+    
+    if title is not None:
+        template = template.prepend("title", " | ").prepend("title", title)
+    
+    description = fields.get("description")
+    
+    if description is not None:
+        template = template.replace("description", description)
     
     output.write(template.render(), path)
 
