@@ -1,4 +1,4 @@
-from . import licenses
+from . import license
 
 from ..templates import Template
 
@@ -17,6 +17,6 @@ def _get_renderer(path: str):
     """Return the content renderer function for a path."""
     
     if path == "license/index.html":
-        return licenses.render_licenses_page
+        return license.render_license_page
     else:
         return None

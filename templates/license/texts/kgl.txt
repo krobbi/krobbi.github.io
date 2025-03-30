@@ -1,6 +1,6 @@
 Krobbizoid Game License
 
-Copyright (c) {{ year }} {{ holder }}
+Copyright (c) {year} {holder}
 All rights reserved.
 
 Permission is granted to any person obtaining a copy of this software, its
