@@ -14,6 +14,7 @@ def get_html(name: str):
     path = f"css/{name}.css"
     
     if name not in _compiled_styles:
+        _compiled_styles.add(name)
         filename = f"styles/{name}.scss"
         text = sass.compile(filename=filename, output_style="compressed")
         output.write(text, path)
