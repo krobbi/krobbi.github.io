@@ -1,5 +1,6 @@
 import output
 import style
+import template
 
 def generate_style(name: str):
     """Generate a style by its name and print its HTML code."""
@@ -17,4 +18,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    #main()
+    print(template.get_base()._source) # type: ignore

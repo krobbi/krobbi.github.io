@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{robots}
+		<title>{title}</title>
+		<meta property="og:title" content="{title}">
+		<meta property="twitter:title" content="{title}">
+		<link rel="icon" href="/favicon.png">
+		<meta name="description" content="{description}">
+		<meta property="og:description" content="{description}">
+		<meta name="author" content="Chris Roberts (Krobbizoid)">
+		<link rel="canonical" href="{url}">
+		<meta property="og:url" content="{url}">
+		<meta property="og:type" content="website">
+		<meta property="twitter:card" content="summary">
+		<meta property="og:locale" content="en_US">
+		<meta property="og:site_name" content="krobbi.github.io">
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"url": "{url}",
+				"headline": "{title}",
+				"description": "{description}"
+			}
+		</script>
+		{styles}
+	</head>
+	<body>
+		<main role="main">
+			{content}
+		</main>
+		<footer role="contentinfo">
+			<p>Copyright &copy; 2024-2025 Chris Roberts</p>
+		</footer>
+	</body>
+</html>
