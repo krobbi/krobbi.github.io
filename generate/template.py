@@ -2,6 +2,9 @@ import re
 
 from pathlib import Path
 
+_TEMPLATES_DIR = Path("templates")
+"""The path for loading templates."""
+
 _TAG_PATTERN = re.compile("{\\s*(\\w+)\\s*}")
 """A pattern matching template tags and capturing their names."""
 
@@ -45,7 +48,7 @@ def get(name: str):
     if name in _loaded_templates:
         return _loaded_templates[name]
     
-    with open(Path("templates") / name) as file:
+    with open(_TEMPLATES_DIR / name) as file:
         source = file.read()
     
     _loaded_templates[name] = _Template(source)

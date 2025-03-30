@@ -15,11 +15,10 @@ def reset():
     shutil.copytree("static", _OUTPUT_DIR)
 
 
-def write(text: str, path: Path):
+def write(text: str, path: Path | str):
     """Write text content to an output file by its path."""
     
     path = _OUTPUT_DIR / path
-    
     os.makedirs(path.parent, exist_ok=True)
     
     with open(path, "w") as file:

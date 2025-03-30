@@ -1,20 +1,19 @@
-import os
-
-from pathlib import Path
-
-import sass
-
 import output
+import style
+
+def generate_style(name: str):
+    """Generate a style by its name and print its HTML code."""
+    
+    print(style.get_html(name).strip())
+
 
 def main():
     """Generate the site's content."""
     
     output.reset()
-    
-    for entry in os.scandir("styles"):
-        text = sass.compile(filename=entry.path, output_style="compressed")
-        path = (Path("css") / entry.name).with_suffix(".css")
-        output.write(text, path)
+    generate_style("main")
+    generate_style("home")
+    generate_style("page")
 
 
 if __name__ == "__main__":
