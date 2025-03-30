@@ -1,5 +1,7 @@
 import os
 
+from . import output
+
 def generate_pages():
     """Generate the site's pages."""
     
@@ -21,4 +23,16 @@ def _generate_pages_recursive(dir: str):
 def _generate_page(path: str):
     """Generate a page by its path."""
     
-    print(f"Generate '{path}'.")
+    is_parsing_fields = False
+    content = ""
+    
+    with open("pages/" + path) as file:
+        for line in file:
+            line = line.rstrip()
+            
+            if line == "---":
+                is_parsing_fields = not is_parsing_fields
+            elif not is_parsing_fields:
+                content += line + "\n"
+    
+    output.write(content, path)
