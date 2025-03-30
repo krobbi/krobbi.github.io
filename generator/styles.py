@@ -1,7 +1,7 @@
 import sass
 
-import output
-import template
+from . import output
+from . import templates
 
 _compiled_styles: set[str] = set()
 """The set of style names that have been compiled."""
@@ -19,4 +19,4 @@ def get_html(name: str):
         text = sass.compile(filename=filename, output_style="compressed")
         output.write(text, path)
     
-    return template.get("style.html").replace("path", path).render()
+    return templates.get("style.html").replace("path", path).render()

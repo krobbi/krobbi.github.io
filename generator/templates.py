@@ -2,8 +2,6 @@ import re
 
 from pathlib import Path
 
-import style
-
 _TEMPLATES_DIR = Path("templates")
 """The path for loading templates."""
 
@@ -50,9 +48,6 @@ class _Template:
 _loaded_templates: dict[str, _Template] = {}
 """A map of template names to loaded templates."""
 
-_base_template: _Template | None = None
-"""The base template for all pages."""
-
 def get(name: str):
     """Return a template from disk by its name."""
     
@@ -63,19 +58,3 @@ def get(name: str):
         _loaded_templates[name] = _Template(source)
     
     return _loaded_templates[name]
-
-
-def get_base():
-    """Return the base template for all pages."""
-    
-    global _base_template
-    
-    if _base_template is None:
-        _base_template = (
-            get("base.html")
-            .prepend("title", "Krobbizoid")
-            .append("url", "https://krobbi.github.io/")
-            .append("styles", style.get_html("main"))
-        )
-    
-    return _base_template

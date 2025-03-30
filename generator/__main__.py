@@ -1,11 +1,10 @@
-import output
-import style
-import template
+from . import output
+from . import styles
 
 def generate_style(name: str):
     """Generate a style by its name and print its HTML code."""
     
-    print(style.get_html(name).strip())
+    print(styles.get_html(name).strip())
 
 
 def main():
@@ -18,5 +17,4 @@ def main():
 
 
 if __name__ == "__main__":
-    #main()
-    print(template.get_base()._source) # type: ignore
+    main()
