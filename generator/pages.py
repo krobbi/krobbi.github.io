@@ -42,8 +42,16 @@ def _generate_page(path: str):
             elif not is_parsing_fields:
                 content += line + "\n"
     
-    template = _get_template().append("url", path.removesuffix("index.html"))
-    output.write(template.replace("content", content).render(), path)
+    style = "home" if path == "index.html" else "page"
+    
+    template = (
+        _get_template()
+        .append("url", path.removesuffix("index.html"))
+        .append("styles", styles.get_html(style))
+        .replace("content", content)
+    )
+    
+    output.write(template.render(), path)
 
 
 def _get_template():
