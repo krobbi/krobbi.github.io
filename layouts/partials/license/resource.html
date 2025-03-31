@@ -1,9 +1,0 @@
-{{/* Build and return a license resource. */}}
-
-{{- $text := readFile ( print "assets/licenses/" .id ".txt" ) }}
-{{- $text = replace $text "{{ year }}" .year }}
-{{- $text = replace $text "{{ holder }}" .holder }}
-
-{{- $path := print "license/" .slug "/" .id ".txt" }}
-
-{{- return ( $text | resources.FromString $path ) -}}

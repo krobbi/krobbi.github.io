@@ -1,6 +1,6 @@
 Krobbizoid Game License
 
-Copyright (c) {{ year }} {{ holder }}
+Copyright (c) 2021-2024 Chris Roberts
 All rights reserved.
 
 Permission is granted to any person obtaining a copy of this software, its

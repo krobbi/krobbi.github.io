@@ -13,7 +13,6 @@ krobbi.github.io is a GitHub Pages website hosted at https://krobbi.github.io.
 The site contains:
 * A homepage.
 * A 404 page.
-* A page listing software license texts.
 * Software license texts hosted in plaintext.
 * CSS stylesheets.
 * Favicon images.

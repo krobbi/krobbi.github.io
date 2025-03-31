@@ -1,7 +1,0 @@
-{{ $license := partial "license/resource.html" ( dict
-	"id" .id
-	"year" .year
-	"holder" "Chris Roberts"
-	"slug" ( replace .year "-" "/" )
-) -}}
-<a href="{{ $license.RelPermalink }}">{{ index site.Data.licenses.names .id }} ({{ .year }})</a>

@@ -1,8 +1,0 @@
-<ul aria-label="Software license links">
-	{{- range .Site.Data.licenses.texts }}
-		{{- $pair := split . " " }}
-		{{- $id := index $pair 0 }}
-		{{- $year := index $pair 1 -}}
-		<li>{{ partial "license/link.html" ( dict "id" $id "year" $year ) }}</li>
-	{{- end -}}
-</ul>
