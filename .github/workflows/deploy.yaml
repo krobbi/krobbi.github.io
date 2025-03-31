@@ -1,36 +1,38 @@
 name: Deploy site to GitHub Pages
 
-# Adapted from https://gohugo.io/hosting-and-deployment/hosting-on-github/
+# Adapted from https://gohugo.io/host-and-deploy/host-on-github-pages/
 
-# Run when pushed to 'main' or dispatched manually:
+# Run when pushed to 'main' or dispatched manually.
 on:
   push:
     branches:
       - main
   workflow_dispatch:
 
-# Grant permissions to deploy to GitHub pages:
+# Grant permissions to deploy to GitHub pages.
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Limit to one deployment at a time and always finish pending jobs:
+# Limit to one deployment at a time and always finish pending jobs.
 concurrency:
   group: pages
   cancel-in-progress: false
 
-# Run commands using Bash:
+# Run commands using Bash.
 defaults:
   run:
     shell: bash
 
-# Generate, upload, and deploy site:
+# Generate, upload, and deploy site.
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.143.1
+      HUGO_VERSION: 0.145.0
+      HUGO_ENVIRONMENT: production
+      TZ: Europe/London
     steps:
       - name: Install Hugo
         run: |
@@ -52,12 +54,29 @@ jobs:
       ## Uncomment if using Node.js packages:
       #- name: Install Node.js packages
       #  run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ${{ runner.temp }}/hugo_cache
+          key: hugo-${{ github.run_id }}
+          restore-keys:
+            hugo-
       - name: Generate site with Hugo
-        env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
-          HUGO_ENVIRONMENT: production
-          TZ: Europe/London
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --cacheDir "${{ runner.temp }}/hugo_cache"
+      - name: Save cache
+        id: cache-save
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ${{ runner.temp }}/hugo_cache
+          key:  ${{ steps.cache-restore.outputs.cache-primary-key }}
       - name: Upload generated site
         uses: actions/upload-pages-artifact@v3
         with:
