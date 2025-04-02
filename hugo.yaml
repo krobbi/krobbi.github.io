@@ -1,4 +1,7 @@
 baseURL: https://krobbi.github.io/
+caches:
+  images:
+    dir: :cacheDir/images
 enableRobotsTXT: true
 languageCode: en-us
 title: Krobbizoid
