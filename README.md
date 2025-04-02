@@ -1,6 +1,6 @@
 # krobbi.github.io
 _My GitHub Pages website._  
-__Copyright &copy; 2024-2025 Chris Roberts__ (Krobbizoid).  
+__Copyright &copy; 2025 Chris Roberts__ (Krobbizoid).  
 _All rights reserved._
 
 # Contents
@@ -22,15 +22,12 @@ The site is fully static, meaning all of its pages are stored on the server
 with their contents fully rendered. This improves page load performance and
 compatibility at the expense of storing larger files with duplicate data.
 
-The static files are generated from this repository using
-[Hugo](https://gohugo.io). Either the extended edition or the standard edition
-with Dart Sass is required. This is the only dependency. The site is
-automatically regenerated and deployed when pushed to GitHub.
+The static files are generated from this repository using the extended edition
+of [Hugo](https://gohugo.io). This is the only dependency. The site is
+automatically regenerated and deployed every time it is pushed to GitHub.
 
 # License
-The site's content is released under an all rights reserved license.
-
-This repository may be used as a reference for building websites without credit
-or permission.
+The site's content is released under an all rights reserved license. This
+repository may be used freely as a reference without credit or permission.
 
 See [LICENSE.txt](./LICENSE.txt) for a full copy of the license text.
