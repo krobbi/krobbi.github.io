@@ -10,4 +10,8 @@ disableKinds:
   - term
 enableRobotsTXT: true
 languageCode: en-GB
+markup:
+  goldmark:
+    parser:
+      autoHeadingID: false
 title: Krobbizoid

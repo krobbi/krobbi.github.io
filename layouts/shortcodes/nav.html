@@ -1,0 +1,3 @@
+<nav {{ with .Get `aria-label` }}aria-label="{{ . }}"{{ end }}>
+	{{ .Page.RenderString .Inner }}
+</nav>
