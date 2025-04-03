@@ -2,11 +2,12 @@ baseURL: https://krobbi.github.io/
 caches:
   images:
     dir: :cacheDir/images
+disableHugoGeneratorInject: true
 disableKinds:
   - rss
   - sitemap
   - taxonomy
   - term
 enableRobotsTXT: true
-languageCode: en-us
+languageCode: en-GB
 title: Krobbizoid

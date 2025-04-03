@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
+<html lang="{{ .Language.LanguageCode }}" dir="{{ or .Language.LanguageDirection `ltr` }}">
 	<head>
-		{{- partial "head.html" . }}
-		{{- partial "style.html" "main" }}
-		{{- block "head" . }}
-		{{- end -}}
+		{{ partial "head.html" . }}
+		{{ partial "style.html" "main" }}
+		{{ block "head" . }}{{ end }}
 	</head>
 	<body>
-		<main role="main">
-			{{- .Content -}}
+		<main>
+			{{ block "main" . }}
+				{{ .Content }}
+			{{ end }}
 		</main>
-		<footer role="contentinfo">
-			{{- partial "footer.html" . -}}
-		</footer>
+		{{ block "footer" . }}
+			{{ partial "footer.html" . }}
+		{{ end }}
 	</body>
 </html>

@@ -1,4 +1,4 @@
-{{ range .Site.Data.disallowedUserAgents -}}
+{{ range .Site.Data.disallowed_user_agents -}}
 User-agent: {{ . }}
 Disallow: /
 DisallowAITraining: /

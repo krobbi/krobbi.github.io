@@ -1,30 +1,18 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="{{ with .Params.robots }}{{ . }}, {{ end }}DisallowAITraining">
-{{ $title := .Site.Title }}
-{{- if not .IsHome }}
-	{{- $title = print .Title " | " $title }}
-{{- end -}}
-<title>{{ $title }}</title>
-<meta property="og:title" content="{{ $title }}">
-<meta property="twitter:title" content="{{ $title }}">
+{{ with cond hugo.IsProduction (or .Params.robots "index, follow") "noindex, nofollow" }}
+	<meta name="robots" content="{{ . }}, DisallowAITraining">
+{{ end }}
+<title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
 <link rel="icon" href="/favicon.png">
 <meta name="description" content="{{ .Description }}">
-<meta property="og:description" content="{{ .Description }}">
 <meta name="author" content="Chris Roberts (Krobbizoid)">
 <link rel="canonical" href="{{ .Permalink }}">
-<meta property="og:url" content="{{ .Permalink }}">
+{{ hugo.Generator }}
+<meta property="og:title" content="{{ or .Title .Site.Title }}">
 <meta property="og:type" content="website">
-<meta property="twitter:card" content="summary">
-<meta property="og:locale" content="en_US">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:description" content="{{ .Description }}">
+<meta property="og:locale" content="{{ replace .Language.LanguageCode `-` `_` }}">
 <meta property="og:site_name" content="krobbi.github.io">
-<script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "WebPage",
-		"url": "{{ .Permalink }}",
-		"headline": "{{ $title }}",
-		"description": "{{ .Description }}"
-	}
-</script>
