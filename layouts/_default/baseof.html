@@ -2,8 +2,6 @@
 <html lang="{{ .Language.LanguageCode }}" dir="{{ or .Language.LanguageDirection `ltr` }}">
 	<head>
 		{{ partial "head.html" . }}
-		{{ partial "style.html" "main" }}
-		{{ block "head" . }}{{ end }}
 	</head>
 	<body>
 		<main>
