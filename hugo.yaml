@@ -14,4 +14,13 @@ markup:
   goldmark:
     parser:
       autoHeadingID: false
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - pageRef: /example-page
+      weight: 20
+    - pageRef: /contact
+      weight: 30
 title: Krobbizoid
