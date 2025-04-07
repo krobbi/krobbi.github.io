@@ -1,3 +1,4 @@
+/* // Reset styles. Consider uncommenting some of these later.
 * {
 	// Reset the box model for all elements.
 	box-sizing: border-box;
@@ -16,4 +17,13 @@ body {
 	// Make the page fill the viewport.
 	width: 100%;
 	min-height: 100%;
+}
+*/
+
+main {
+	// Limit the width of the main content for readability.
+	max-width: 70ch;
+	
+	// Centre the main content on the page.
+	margin: auto;
 }
