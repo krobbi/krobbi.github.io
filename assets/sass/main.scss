@@ -1,5 +1,19 @@
-// Test styles by setting the background colour and text colour.
+* {
+	// Reset the box model for all elements.
+	box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+html {
+	// Allow the page to fill the viewport.
+	width: 100%;
+	height: 100%;
+}
+
 body {
-	background-color: black;
-	color: white;
+	// Make the page fill the viewport.
+	width: 100%;
+	min-height: 100%;
 }
