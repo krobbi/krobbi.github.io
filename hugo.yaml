@@ -2,6 +2,7 @@ baseURL: https://krobbi.github.io/
 caches:
   images:
     dir: :cacheDir/images
+cleanDestinationDir: true
 disableHugoGeneratorInject: true
 disableKinds:
   - rss
