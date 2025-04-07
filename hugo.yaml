@@ -1,19 +1,10 @@
+# Define website information.
+title: Krobbizoid
 baseURL: https://krobbi.github.io/
-caches:
-  images:
-    dir: :cacheDir/images
-cleanDestinationDir: true
-disableHugoGeneratorInject: true
-disableKinds:
-  - rss
-  - taxonomy
-  - term
-enableRobotsTXT: true
 languageCode: en-GB
-markup:
-  goldmark:
-    parser:
-      autoHeadingID: false
+timeZone: Europe/London
+
+# Define the main navigation menu.
 menus:
   main:
     - name: Home
@@ -23,13 +14,36 @@ menus:
       weight: 20
     - pageRef: /contact
       weight: 30
+
+# Generate a 'robots.txt' file. Do not generate RSS feeds or taxonomy pages.
+enableRobotsTXT: true
+disableKinds:
+  - rss
+  - taxonomy
+  - term
+
+# Do not automatically inject generator tags or heading IDs.
+disableHugoGeneratorInject: true
+markup:
+  goldmark:
+    parser:
+      autoHeadingID: false
+
+# Do not serve XML metadata from the development server.
 server:
   redirects:
-    - from: /sitemap.xml
+    - from: /**.xml
       to: /404.html
       status: 404
       force: true
     - from: /**
       to: /404.html
       status: 404
-title: Krobbizoid
+
+# Clean the destination directory before generating the website.
+cleanDestinationDir: true
+
+# Cache images in the GitHub Actions workflow.
+caches:
+  images:
+    dir: :cacheDir/images
