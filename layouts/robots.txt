@@ -1,9 +1,7 @@
 {{ range .Site.Data.disallowed_user_agents -}}
 User-agent: {{ . }}
 Disallow: /
-DisallowAITraining: /
 
 {{ end -}}
 User-agent: *
 Sitemap: {{ absURL "sitemap.xml" }}
-DisallowAITraining: /
