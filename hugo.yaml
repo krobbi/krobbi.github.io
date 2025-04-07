@@ -23,4 +23,13 @@ menus:
       weight: 20
     - pageRef: /contact
       weight: 30
+server:
+  redirects:
+    - from: /sitemap.xml
+      to: /404.html
+      status: 404
+      force: true
+    - from: /**
+      to: /404.html
+      status: 404
 title: Krobbizoid
