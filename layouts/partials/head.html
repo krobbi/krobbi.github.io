@@ -9,6 +9,7 @@
 <meta name="description" content="{{ .Description }}">
 <meta name="author" content="Chris Roberts (Krobbizoid)">
 <link rel="canonical" href="{{ .Permalink }}">
+{{ partial "head/style.html" "main" }}
 {{ hugo.Generator }}
 <meta property="og:title" content="{{ or .Title .Site.Title }}">
 <meta property="og:type" content="website">
