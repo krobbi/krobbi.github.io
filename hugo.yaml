@@ -6,7 +6,6 @@ cleanDestinationDir: true
 disableHugoGeneratorInject: true
 disableKinds:
   - rss
-  - sitemap
   - taxonomy
   - term
 enableRobotsTXT: true

@@ -5,4 +5,5 @@ DisallowAITraining: /
 
 {{ end -}}
 User-agent: *
+Sitemap: {{ absURL "sitemap.xml" }}
 DisallowAITraining: /
