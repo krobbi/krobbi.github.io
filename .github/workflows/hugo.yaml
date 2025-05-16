@@ -2,11 +2,11 @@ name: Deploy site to GitHub Pages
 
 # Adapted from https://gohugo.io/host-and-deploy/host-on-github-pages/
 
-# Run when pushed to 'main' or dispatched manually.
+# Run when when a 'deploy/**' tag is pushed or when dispatched manually.
 on:
   push:
-    branches:
-      - main
+    tags:
+      - deploy/**
   workflow_dispatch:
 
 # Grant permissions to deploy to GitHub pages.
@@ -30,7 +30,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.145.0
+      HUGO_VERSION: 0.147.3
       HUGO_ENVIRONMENT: production
       TZ: Europe/London
     steps:
@@ -63,6 +63,8 @@ jobs:
           key: hugo-${{ github.run_id }}
           restore-keys:
             hugo-
+      - name: Configure Git
+        run: git config core.quotepath false
       - name: Generate site with Hugo
         run: |
           hugo \
