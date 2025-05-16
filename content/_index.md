@@ -2,8 +2,6 @@
 description: Programmer, game developer, and musician.
 ---
 
-# Krobbizoid
-
 {{< nav aria-label=Contact >}}
 * [GitHub](https://github.com/krobbi)
 * [Bandcamp](https://krobbizoid.bandcamp.com)
