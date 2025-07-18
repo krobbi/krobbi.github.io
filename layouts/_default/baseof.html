@@ -8,7 +8,9 @@
 			{{ partial "header.html" . }}
 		{{ end }}
 		<main>
-			{{ block "main" . }}{{ end }}
+			<article class="content">
+				{{ block "main" . }}{{ end }}
+			</article>
 		</main>
 		{{ block "footer" . }}
 			{{ partial "footer.html" . }}

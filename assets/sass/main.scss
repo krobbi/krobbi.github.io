@@ -1,25 +1,27 @@
-// // Reset styles. Consider uncommenting some of these later.
-// * {
-// 	// Reset the box model for all elements.
-// 	box-sizing: border-box;
-// 	margin: 0;
-// 	border: 0;
-// 	padding: 0;
-// }
+* {
+	// Reset the box model for all elements.
+	box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
 
-// html {
-// 	// Allow the page to fill the viewport.
-// 	width: 100%;
-// 	height: 100%;
-// }
-
-// body {
-// 	// Make the page fill the viewport.
-// 	width: 100%;
-// 	min-height: 100%;
-// }
+html {
+	// Allow the page to fill the viewport.
+	width: 100%;
+	height: 100%;
+}
 
 body {
+	// Display the page vertically with flex.
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	// Make the page fill the viewport.
+	width: 100%;
+	min-height: 100%;
+
 	// Use a sans-serif font.
 	font-family: Helvetica, Arial, sans-serif;
 }
@@ -30,10 +32,18 @@ h1, h2, h3, h4, h5, h6 {
 	font-style: italic;
 }
 
-main {
-	// Limit the width of the main content for readability.
-	max-width: 70ch;
+header, main, footer {
+	// Add padding to landmark elements.
+	padding: 1em;
+}
 
-	// Centre the main content on the page.
+.content {
+	// Justify landmark content to a maximum width for better readability.
 	margin: auto;
+	max-width: 70ch;
+}
+
+footer {
+	// Force footer to bottom of page.
+	margin-top: auto;
 }
