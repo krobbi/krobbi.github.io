@@ -37,13 +37,10 @@ header, main, footer {
 	padding: 1em;
 }
 
-.content {
-	// Justify landmark content to a maximum width for better readability.
-	margin: auto;
+.justified {
+	// Justified content has a limited width for better readability.
+	margin: 0 auto;
 	max-width: 70ch;
 }
 
-footer {
-	// Force footer to bottom of page.
-	margin-top: auto;
-}
+@import "main/footer";
