@@ -19,10 +19,21 @@
 // 	min-height: 100%;
 // }
 
+body {
+	// Use a sans-serif font.
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	// Use an italic serif font for headings.
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+}
+
 main {
 	// Limit the width of the main content for readability.
 	max-width: 70ch;
-	
+
 	// Centre the main content on the page.
 	margin: auto;
 }
