@@ -2,11 +2,8 @@ name: Deploy site to GitHub Pages
 
 # Adapted from https://gohugo.io/hosting-and-deployment/hosting-on-github/
 
-# Run when pushed to 'main' or dispatched manually:
+# Run when dispatched manually:
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 # Grant permissions to deploy to GitHub pages:
