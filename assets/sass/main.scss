@@ -49,10 +49,13 @@ main, footer {
 	padding: 1em;
 }
 
-.justified {
-	// Justified content has a limited width for better readability.
+// The target width of content for readability.
+$content-width: 70ch;
+
+.content {
+	// Horizontally centre content with a maximum width.
 	margin: 0 auto;
-	max-width: 70ch;
+	max-width: $content-width;
 }
 
 // `@use` is preferred, but not supported by libsass.
