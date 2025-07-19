@@ -1,15 +1,15 @@
 <header>
 	<nav class="justified" aria-label="Main">
-		<ul>
-			{{ range .Site.Menus.main }}
+		<ul class="nav-list">
+			{{- range .Site.Menus.main -}}
 				<li>
-					{{ if $.Page.IsMenuCurrent .Menu . }}
-						<a href="{{ .URL }}" aria-current="page">{{ .Name }} (Current)</a>
-					{{ else }}
+					{{- if $.Page.IsMenuCurrent .Menu . -}}
+						<a class="current" href="{{ .URL }}" aria-current="page">{{ .Name }}</a>
+					{{- else -}}
 						<a href="{{ .URL }}">{{ .Name }}</a>
-					{{ end }}
+					{{- end -}}
 				</li>
-			{{ end }}
+			{{- end -}}
 		</ul>
 	</nav>
 </header>

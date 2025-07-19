@@ -1,3 +1,6 @@
+// Accent colour derived from banner image.
+$accent-colour: #1e416b;
+
 * {
 	// Reset the box model for all elements.
 	box-sizing: border-box;
@@ -32,8 +35,8 @@ h1, h2, h3, h4, h5, h6 {
 	font-style: italic;
 }
 
-header, main, footer {
-	// Add padding to landmark elements.
+main, footer {
+	// Add padding to the main content and footer.
 	padding: 1em;
 }
 
@@ -43,4 +46,5 @@ header, main, footer {
 	max-width: 70ch;
 }
 
-@import "main/footer";
+// `@use` is preferred, but not supported by libsass.
+@import "main/header", "main/footer";

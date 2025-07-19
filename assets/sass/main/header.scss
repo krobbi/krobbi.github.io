@@ -1,0 +1,38 @@
+header {
+	// Add padding to the header.
+	padding: 2em 1em 0;
+
+	// Use a nice background image.
+	background: url("/img/banner.jpg") center, $accent-colour;
+	background-size: cover;
+}
+
+$nav-list-link-padding: 1em;
+
+.nav-list {
+	// Make room for navigation list links.
+	padding: $nav-list-link-padding 0;
+
+	// Remove bullet points from the navigation list.
+	list-style: none;
+}
+
+.nav-list li {
+	// Display the navigation list horizontally.
+	display: inline;
+}
+
+.nav-list a {
+	// Add padding to navigation list links.
+	padding: $nav-list-link-padding;
+
+	// Use a darker version of the main content's background colour for a
+	// neumorphic 'tab' effect.
+	background: linear-gradient(#bbb, #aaa), #aaa;
+
+	&.current {
+		// Use the main content's background colour for the current navigation
+		// list link.
+		background: linear-gradient(#eee, #fff), #fff;
+	}
+}
