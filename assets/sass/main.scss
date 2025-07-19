@@ -1,4 +1,5 @@
-// Accent colour derived from banner image.
+// Accent colour derived from banner image. Must contrast with the main
+// content's background colour for headings to be accessible.
 $accent-colour: #1e416b;
 
 * {
@@ -30,9 +31,17 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+	// Use the accent colour for headings.
+	color: $accent-colour;
+
 	// Use an italic serif font for headings.
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-style: italic;
+}
+
+p {
+	// Add a margin to the top and bottom of paragraphs.
+	margin: 0.25em 0 1em;
 }
 
 main, footer {
