@@ -9,7 +9,7 @@ content management system.
 
 ## Demo
 This page exists to justify the navbar's existence. To justify this page's
-existence, here's a demo of an unfinished song "Above the Clouds":
+existence, here's a demo of an unfinished song, "Above the Clouds":
 {{< audio src=/audio/krobbizoid-above-the-clouds-demo-3.mp3 >}}
 
 (Apologies for any issues with audio quality, GitHub pages isn't ideal for
