@@ -55,6 +55,14 @@ a {
 	}
 }
 
+audio {
+	// Make audio players take up their own line.
+	display: block;
+
+	// Add a margin to the top of audio players.
+	margin-top: 0.5em;
+}
+
 main, footer {
 	// Add padding to the main content and footer.
 	padding: 1em;

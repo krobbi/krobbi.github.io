@@ -10,10 +10,8 @@ menus:
     - name: Home
       pageRef: /
       weight: 10
-    - pageRef: /example-page
+    - pageRef: /music
       weight: 20
-    - pageRef: /contact
-      weight: 30
 
 # Generate a 'robots.txt' file. Do not generate RSS feeds or taxonomy pages.
 enableRobotsTXT: true

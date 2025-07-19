@@ -1,0 +1,6 @@
+{{ with resources.Get (.Get "src") }}
+	<audio src="{{ .RelPermalink }}" controls preload="none"></audio>
+	<a href="{{ .RelPermalink }}" download>Download '{{ path.Base .Title }}' ({{
+		math.Div (.Content | len | cast.ToFloat) (math.Mul 1024 1024) | lang.FormatNumber 2
+	}} MiB)</a>
+{{ end }}
