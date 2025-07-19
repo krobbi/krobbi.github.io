@@ -13,16 +13,15 @@
 
 	// Use a darker version of the main content's background colour for a
 	// neumorphic 'tab' effect.
-	background: linear-gradient(#bbb, #aaa), #aaa;
+	background: linear-gradient(#ccc, #bbb), #ccc;
 
-	color: $accent-colour;
-	font-weight: bold;
+	// Remove the underline from navbar links.
 	text-decoration: none;
 
 	&:hover {
 		// Use a different background colour while hovering over the navbar
 		// link.
-		background: linear-gradient(#abb, #bdd), #bdd;
+		background: linear-gradient(#cdd, #dee), #dee;
 	}
 
 	&.current {
