@@ -7,11 +7,7 @@
 		{{ block "header" . }}
 			{{ partial "header.html" . }}
 		{{ end }}
-		<main>
-			<article class="content">
-				{{ block "main" . }}{{ end }}
-			</article>
-		</main>
+		{{ block "main" . }}{{ end }}
 		{{ block "footer" . }}
 			{{ partial "footer.html" . }}
 		{{ end }}
