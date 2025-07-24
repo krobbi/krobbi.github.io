@@ -18,7 +18,7 @@ GitHub Pages does not support server-side code, so static site generation is
 useful for creating reusable components and page layouts without repeating
 code[^2].
 
-[^2]: In other words, it's DRY (don't repeat yourself.)
+[^2]: In other words, it's DRY (don't repeat yourself).
 
 An alternative would be to use JavaScript etc. and build the pages client-side.
 This is sensible for web apps with many possible states, but for an ordinary
