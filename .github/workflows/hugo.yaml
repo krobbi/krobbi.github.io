@@ -2,11 +2,12 @@ name: Deploy site to GitHub Pages
 
 # Adapted from https://gohugo.io/host-and-deploy/host-on-github-pages/
 
-# Run when when a 'deploy/**' tag is pushed or when dispatched manually.
+# Run when when a 'deploy/YYYY-MM-DD-rN' tag is pushed or when dispatched
+# manually.
 on:
   push:
     tags:
-      - deploy/**
+      - "deploy/20[2-9][0-9]-[01][0-9]-[0-3][0-9]-r[0-9]"
   workflow_dispatch:
 
 # Grant permissions to deploy to GitHub pages.
