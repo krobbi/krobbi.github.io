@@ -7,7 +7,11 @@
 		{{ block "header" . }}
 			{{ partial "header.html" . }}
 		{{ end }}
-		{{ block "main" . }}{{ end }}
+		<div class="padded">
+			<main id="main-content" class="centred">
+				{{ block "main" . }}{{ end }}
+			</main>
+		</div>
 		{{ block "footer" . }}
 			{{ partial "footer.html" . }}
 		{{ end }}

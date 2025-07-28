@@ -1,15 +1,15 @@
-<header>
-	<nav class="content" aria-label="Main">
+<header class="banner">
+	<nav class="centred" aria-label="Main">
 		<ul class="navbar">
-			{{- range .Site.Menus.main -}}
-				<li>
-					{{- if $.Page.IsMenuCurrent .Menu . -}}
-						<a class="current" href="{{ .URL }}" aria-current="page">{{ .Name }}</a>
-					{{- else -}}
-						<a href="{{ .URL }}">{{ .Name }}</a>
-					{{- end -}}
+			{{ range .Site.Menus.main -}}
+				<li class="navbar-item">
+					{{ if $.Page.IsMenuCurrent .Menu . }}
+						<a href="{{ .URL }}" class="current navbar-link" aria-current="page">{{ .Name }}</a>
+					{{ else }}
+						<a href="{{ .URL }}" class="navbar-link">{{ .Name }}</a>
+					{{ end }}
 				</li>
-			{{- end -}}
+			{{- end }}
 		</ul>
 	</nav>
 </header>
