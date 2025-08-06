@@ -11,6 +11,9 @@
 <meta name="author" content="Chris Roberts">
 <link rel="canonical" href="{{ .Permalink }}">
 {{ partial "head/style.html" "main" }}
+{{ if eq .Section "tweets" }}
+	{{ partial "head/style.html" "tweets" }}
+{{ end }}
 {{ hugo.Generator }}
 <meta property="og:title" content="{{ or .Title .Site.Title }}">
 <meta property="og:type" content="website">
