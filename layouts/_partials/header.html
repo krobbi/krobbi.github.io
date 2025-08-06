@@ -5,6 +5,8 @@
 				<li class="navbar-item">
 					{{ if $.Page.IsMenuCurrent .Menu . }}
 						<a href="{{ .URL }}" class="current navbar-link" aria-current="page">{{ .Name }}</a>
+					{{ else if $.Page.HasMenuCurrent .Menu . }}
+						<a href="{{ .URL }}" class="current navbar-link" aria-current="true">{{ .Name }}</a>
 					{{ else }}
 						<a href="{{ .URL }}" class="navbar-link">{{ .Name }}</a>
 					{{ end }}
