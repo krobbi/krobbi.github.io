@@ -12,6 +12,9 @@ menus:
       weight: 10
     - pageRef: /music
       weight: 20
+    - name: Tweets
+      pageRef: /tweets
+      weight: 30
 
 # Generate a 'robots.txt' file. Do not generate RSS feeds or taxonomy pages.
 enableRobotsTXT: true
