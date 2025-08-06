@@ -1,0 +1,8 @@
+{{ define "main" }}
+	<article class="tweet">
+		<header>
+			<h1>Tweet from {{ partial "tweets/date.html" .Date }}</h1>
+		</header>
+		{{ .Content }}
+	</article>
+{{ end }}
