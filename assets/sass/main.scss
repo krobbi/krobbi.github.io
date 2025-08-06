@@ -1,3 +1,6 @@
+// `@use` is preferred, but not supported by libsass.
+@import "common";
+
 * {
 	// Reset the box model for all elements.
 	box-sizing: border-box;
@@ -25,10 +28,6 @@ body {
 	// Use a sans-serif font.
 	font-family: Helvetica, Arial, sans-serif;
 }
-
-// Accent colour derived from banner image. Must contrast with the main
-// content's background colour for headings and links to be accessible.
-$accent-colour: #1e416b;
 
 h1, h2, h3, h4, h5, h6 {
 	// Use the accent colour for headings.
@@ -79,5 +78,4 @@ $line-width: 70ch;
 	padding: 1em;
 }
 
-// `@use` is preferred, but not supported by libsass.
 @import "main/header", "main/footer";

@@ -1,0 +1,7 @@
+// Define common variables used across multiple stylesheets. This stylesheet
+// should only contain variables - content that compiles to CSS will be
+// duplicated across multiple stylesheets.
+
+// An accent colour derived from the banner image. Must contrast with the main
+// content's background colour for headings and links to be accessible.
+$accent-colour: #1e416b;

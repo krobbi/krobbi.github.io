@@ -1,4 +1,7 @@
 {{ with resources.Get (print "sass/" . ".scss") }}
+	{{ if eq $ "common" }}
+		{{ errorf "The %q stylesheet was linked." $ }}
+	{{ end }}
 	{{ $options := dict
 		"targetPath" (print "css/" $ ".css")
 		"outputStyle" (cond hugo.IsProduction "compressed" "expanded")

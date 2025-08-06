@@ -1,3 +1,6 @@
+// `@use` is preferred, but not supported by libsass.
+@import "common";
+
 .tweet {
 	// Use rounded corners for Tweets.
 	border-radius: 1em;
@@ -5,4 +8,9 @@
 	// Give Tweets a different background colour to the main content's
 	// background colour.
 	background: linear-gradient(#eee, #ddd), #eee;
+}
+
+.tweet-decoration {
+	// Use a different text colour for hashtags and mentions.
+	color: $accent-colour;
 }
