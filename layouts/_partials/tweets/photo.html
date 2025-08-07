@@ -7,4 +7,4 @@
 	{{ warnf "Photo %q requires alt text. See Tweet #%s" $id .tweetID }}
 {{ end }}
 {{ $photo := resources.Get (print "img/tweets/" $id ".png") }}
-<img src="{{ $photo.RelPermalink }}" alt="{{ or $alt `Image` }}">
+<img src="{{ $photo.RelPermalink }}" alt="{{ or $alt `Image` }}" class="tweet-photo">

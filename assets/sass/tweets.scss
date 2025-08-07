@@ -14,3 +14,18 @@
 	// Use a different text colour for hashtags and mentions.
 	color: $accent-colour;
 }
+
+.tweet-photo {
+	// Display photos as blocks to enable overlapping margins.
+	display: block;
+
+	// Centre photos horizontally and add a margin above them.
+	margin: 1em auto 0;
+
+	// Add a rounded border to photos.
+	border: 0.25em solid #ccc;
+	border-radius: 1em;
+
+	// Limit photos to the width of the Tweet.
+	max-width: 100%;
+}
