@@ -1,0 +1,10 @@
+{{ $id := .photo.id }}
+{{ if not $id }}
+	{{ errorf "Tweet #%s has a photo with a missing ID." .tweetID }}
+{{ end }}
+{{ $alt := .photo.alt }}
+{{ if not $alt }}
+	{{ warnf "Photo %q requires alt text. See Tweet #%s" $id .tweetID }}
+{{ end }}
+{{ $photo := resources.Get (print "img/tweets/" $id ".png") }}
+<img src="{{ $photo.RelPermalink }}" alt="{{ or $alt `Image` }}">

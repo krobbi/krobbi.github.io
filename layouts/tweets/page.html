@@ -1,9 +1,16 @@
 {{ define "main" }}
+	{{ $tweetID := .Params.tweetID }}
+	{{ if not $tweetID }}
+		{{ errorf "The Tweet page %q requires a Tweet ID." .RelPermalink }}
+	{{ end }}
 	<article class="padded tweet">
 		<header>
 			<h1>Tweet from {{ partial "tweets/date.html" .Date }}</h1>
 		</header>
 		{{ .Content }}
+		{{ range .Params.photos }}
+			{{ partial "tweets/photo.html" (dict "tweetID" $tweetID "photo" .) }}
+		{{ end }}
 	</article>
 	<nav class="padded" aria-label="Tweet">
 		<ul>
