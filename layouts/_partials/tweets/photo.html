@@ -8,4 +8,6 @@
 {{ end }}
 {{ $photo := resources.Get (print "img/tweets/" $id ".png") }}
 {{ $thumb := $photo.Fit "540x540 jpeg" | resources.Copy (print "img/tweets/thumbnails/" $id ".jpg") }}
-<img src="{{ $thumb.RelPermalink }}" alt="{{ or $alt `Image` }}" class="tweet-photo">
+<a href="{{ $photo.RelPermalink }}" target="_blank" class="tweet-photo-link">
+	<img src="{{ $thumb.RelPermalink }}" alt="{{ or $alt `Image` }}" class="tweet-photo">
+</a>
