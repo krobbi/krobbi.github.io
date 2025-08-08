@@ -12,6 +12,12 @@
 			{{ partial "tweets/photo.html" (dict "tweetID" $tweetID "photo" .) }}
 		{{ end }}
 	</article>
+	{{ with .Params.context }}
+		<section class="padded" aria-label="Context">
+			<h2>Context</h2>
+			{{ $.RenderString (dict "display" "block") . }}
+		</section>
+	{{ end }}
 	<nav class="padded" aria-label="Tweet">
 		<ul>
 			<li><a href="{{ .Parent.RelPermalink }}">Go back to Twitter archive</a></li>
