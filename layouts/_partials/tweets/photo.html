@@ -4,10 +4,10 @@
 {{ end }}
 {{ $alt := .photo.alt }}
 {{ if not $alt }}
-	{{ warnf "Photo %q requires alt text. See Tweet #%s" $id .tweetID }}
+	{{ errorf "Photo %q requires alt text. See Tweet #%s" $id .tweetID }}
 {{ end }}
 {{ $photo := resources.Get (print "img/tweets/" $id ".png") }}
 {{ $thumb := $photo.Fit "540x540 jpeg" | resources.Copy (print "img/tweets/thumbnails/" $id ".jpg") }}
 <a href="{{ $photo.RelPermalink }}" target="_blank" class="tweet-photo-link">
-	<img src="{{ $thumb.RelPermalink }}" alt="{{ or $alt `Image` }}" class="tweet-photo">
+	<img src="{{ $thumb.RelPermalink }}" alt="{{ $alt }}" class="tweet-photo">
 </a>
