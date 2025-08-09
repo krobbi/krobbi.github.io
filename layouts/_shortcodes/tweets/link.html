@@ -1,0 +1,7 @@
+{{ $url := replace (.Get "url") "http://" "https://" 1 -}}
+{{ if not $url }}
+	{{ errorf "The %q shortcode requires a url argument. See %s" .Name .Position }}
+{{ end -}}
+{{ $text := $url | strings.TrimPrefix "https://" | strings.TrimPrefix "www." -}}
+<a href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $text }}</a>
+{{- /* Remove whitespace because links are included in inline text. */ -}}

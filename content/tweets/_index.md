@@ -12,7 +12,7 @@ are not too embarrassing. This eases the limited storage capacity on this site.
 
 Missing image alt text has been added, and existing image alt text has been
 improved. The original text content has not been touched, but I have added
-context sections to some Tweets.
+context sections to some Tweets. HTTP links have also been upgraded to HTTPS.
 
 I have saved a copy of the original Tweets as they were downloaded, but I do
 not plan to make this public.
