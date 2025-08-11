@@ -5,6 +5,9 @@
 {{- $text := $url | strings.TrimPrefix "https://" | strings.TrimPrefix "www." }}
 {{- if .Get "broken" -}}
 	<span class="tweet-decoration" title="Broken link">{{ $text }}</span>
-{{- else -}}
+{{- else }}
+	{{- with findRESubmatch `^youtu(?:be\.com/watch\?v=|\.be/)([\w-]{11})$` $text }}
+		{{- $.Page.Store.Set "youtubeVideoID" (index (index . 0) 1) }}
+	{{- end -}}
 	<a href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $text }}</a>
 {{- end -}}

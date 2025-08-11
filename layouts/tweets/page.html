@@ -11,6 +11,17 @@
 		{{ range .Params.photos }}
 			{{ partial "tweets/photo.html" (dict "tweetID" $tweetID "photo" .) }}
 		{{ end }}
+		{{ with .Store.Get "youtubeVideoID" }}
+			<iframe
+				src="https://www.youtube-nocookie.com/embed/{{ . }}"
+				allow="fullscreen"
+				sandbox="allow-popups allow-same-origin allow-scripts"
+				referrerpolicy="no-referrer"
+				credentialless="true"
+				class="tweet-video"
+				title="YouTube video"
+			></iframe>
+		{{ end }}
 	</article>
 	{{ with .Params.context }}
 		<section class="padded" aria-label="Context">

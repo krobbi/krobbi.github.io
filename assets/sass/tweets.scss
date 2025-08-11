@@ -42,3 +42,11 @@
 	// Limit photos to the width of the Tweet.
 	max-width: 100%;
 }
+
+.tweet-video {
+	// Use the full width of the Tweet for videos.
+	width: 100%;
+
+	// Use a 16:9 aspect ratio for videos.
+	aspect-ratio: 16/9;
+}
