@@ -4,7 +4,7 @@
 {{ end }}
 {{ $alt := .photo.alt }}
 {{ if not $alt }}
-	{{ errorf "Photo %q requires alt text. See Tweet #%s" $id .tweetID }}
+	{{ errorf "The Tweet photo %q requires alt text. See Tweet #%s" $id .tweetID }}
 {{ end }}
 {{ $photo := resources.Get (print "img/tweets/" $id ".png") }}
 {{ $thumb := $photo.Fit "540x540 jpeg" | resources.Copy (print "img/tweets/thumbnails/" $id ".jpg") }}
