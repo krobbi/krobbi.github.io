@@ -41,9 +41,6 @@ server:
       to: /404.html
       status: 404
 
-# Clean the destination directory before generating the website.
-cleanDestinationDir: true
-
 # Cache images in the GitHub Actions workflow.
 caches:
   images:
