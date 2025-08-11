@@ -1,3 +1,12 @@
+{{ $isTweet := and (eq .Section "tweets") (eq .Kind "page") }}
+{{ $description := .Description }}
+{{ if not $description }}
+	{{ if $isTweet }}
+		{{ $description = .Date.Format "Archived Tweet from January 2, 2006 at 3:04 PM" }}
+	{{ else }}
+		{{ errorf "The page %q requires a description." (replace .File.Path `\` "/") }}
+	{{ end }}
+{{ end }}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +16,17 @@
 {{ end }}
 <title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
 <link rel="icon" href="/favicon.png">
-<meta name="description" content="{{ .Description }}">
+<meta name="description" content="{{ $description }}">
 <meta name="author" content="Chris Roberts">
 <link rel="canonical" href="{{ .Permalink }}">
 {{ partial "head/style.html" "main" }}
-{{ if eq .Section "tweets" }}
+{{ if $isTweet }}
 	{{ partial "head/style.html" "tweets" }}
 {{ end }}
 {{ hugo.Generator }}
 <meta property="og:title" content="{{ or .Title .Site.Title }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:description" content="{{ .Description }}">
+<meta property="og:description" content="{{ $description }}">
 <meta property="og:locale" content="{{ replace .Language.LanguageCode `-` `_` }}">
 <meta property="og:site_name" content="krobbi.github.io">
