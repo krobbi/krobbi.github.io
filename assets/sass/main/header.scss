@@ -47,6 +47,9 @@
 	}
 
 	.navbar-link {
+		// Use rounded top corners for navbar links.
+		border-radius: 0.5em 0.5em 0 0;
+
 		// Make the navbar links bigger.
 		padding: 0.75em;
 	}
