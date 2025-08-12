@@ -1,2 +1,4 @@
-krobbi.github.io website content copyright (c) 2025 Chris Roberts
-All rights reserved.
+The content of the krobbi.github.io website, including text, images, audio, and
+page designs is copyright (c) 2025 Chris Roberts. Content from other websites
+that is linked from or embedded into the krobbi.github.io website is not covered
+by this license.

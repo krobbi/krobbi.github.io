@@ -26,9 +26,8 @@ website this can cause issues for screen readers, web crawlers, and older
 browsers.
 
 # License
-The content that appears on the generated site, including text, images, and
-page designs is copyrighted with all rights reserved. Content embedded from
-other sites such as video or music players may be licensed differently. The
-code used for generating the site may be used freely as a reference.
+The content that appears on the generated site is copyrighted. Content from
+other sites that is linked or embedded may be licensed differently. The code
+used for generating the site may be used freely.
 
-See [LICENSE.txt](./LICENSE.txt) for a full copy of the license text.
+See [LICENSE.txt](/LICENSE.txt) for a full copy of the license text.
