@@ -1,5 +1,5 @@
 {{ with .Get "tag" -}}
-	<span class="tweet-decoration">#{{ . }}</span>
+	<span class="tweet-decoration" title="Twitter hashtag">#{{ . }}</span>
 {{- else }}
 	{{ errorf "The %q shortcode requires a tag argument. See %s" .Name .Position }}
 {{ end -}}

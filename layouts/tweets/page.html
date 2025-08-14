@@ -5,7 +5,7 @@
 	{{ end }}
 	<article aria-label="Archived Tweet">
 		<h1>Tweet from {{ partial "tweets/date.html" .Date }}</h1>
-		<blockquote class="padded tweet">
+		<blockquote class="padded tweet" aria-label="Tweet content">
 			{{ .Content }}
 			{{ range .Params.photos }}
 				{{ partial "tweets/photo.html" (dict "tweetID" $tweetID "photo" .) }}
