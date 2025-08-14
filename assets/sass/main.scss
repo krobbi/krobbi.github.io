@@ -30,6 +30,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+	// Add a margin to the top of headings.
+	margin: 1rem 0 0.25rem;
+
 	// Use the accent colour for headings.
 	color: $accent-colour;
 
