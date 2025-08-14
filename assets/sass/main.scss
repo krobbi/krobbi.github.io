@@ -55,11 +55,11 @@ a {
 }
 
 audio {
-	// Make audio players take up their own line.
-	display: block;
-
 	// Add a margin to the top of audio players.
-	margin-top: 0.5em;
+	margin-top: 1em;
+
+	// Make audio players take up the full width of the page.
+	width: 100%;
 }
 
 // The target width of a line of text for readability.
