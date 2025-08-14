@@ -3,33 +3,33 @@
 	{{ if not $tweetID }}
 		{{ errorf "The Tweet page %q requires a Tweet ID." .RelPermalink }}
 	{{ end }}
-	<article class="padded tweet">
-		<header>
-			<h1>Tweet from {{ partial "tweets/date.html" .Date }}</h1>
-		</header>
-		{{ .Content }}
-		{{ range .Params.photos }}
-			{{ partial "tweets/photo.html" (dict "tweetID" $tweetID "photo" .) }}
-		{{ end }}
-		{{ with .Store.Get "youtubeVideoID" }}
-			<iframe
-				src="https://www.youtube-nocookie.com/embed/{{ . }}"
-				allow="fullscreen"
-				sandbox="allow-popups allow-same-origin allow-scripts"
-				referrerpolicy="no-referrer"
-				credentialless="true"
-				class="tweet-video"
-				title="YouTube video"
-			></iframe>
+	<article aria-label="Archived Tweet">
+		<h1>Tweet from {{ partial "tweets/date.html" .Date }}</h1>
+		<blockquote class="padded tweet">
+			{{ .Content }}
+			{{ range .Params.photos }}
+				{{ partial "tweets/photo.html" (dict "tweetID" $tweetID "photo" .) }}
+			{{ end }}
+			{{ with .Store.Get "youtubeVideoID" }}
+				<iframe
+					src="https://www.youtube-nocookie.com/embed/{{ . }}"
+					allow="fullscreen"
+					sandbox="allow-popups allow-same-origin allow-scripts"
+					referrerpolicy="no-referrer"
+					credentialless="true"
+					class="tweet-video"
+					title="YouTube video"
+				></iframe>
+			{{ end }}
+		</blockquote>
+		{{ with .Params.context }}
+			<footer aria-labelledby="context">
+				<h2 id="context">Context</h2>
+				{{ $.RenderString (dict "display" "block") . }}
+			</footer>
 		{{ end }}
 	</article>
-	{{ with .Params.context }}
-		<section class="padded" aria-label="Context">
-			<h2>Context</h2>
-			{{ $.RenderString (dict "display" "block") . }}
-		</section>
-	{{ end }}
-	<nav class="padded" aria-label="Tweet">
+	<nav aria-label="Twitter archive">
 		<ul>
 			<li><a href="{{ .Parent.RelPermalink }}">Go back to Twitter archive</a></li>
 			{{ with .PrevInSection }}
