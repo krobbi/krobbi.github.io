@@ -1,0 +1,30 @@
+{{ $tweetID := .Params.tweetID }}
+{{ if not $tweetID }}
+	{{ errorf "The Tweet page %q requires a Tweet ID." .RelPermalink }}
+{{ end }}
+<article aria-label="Archived Tweet">
+	<h1>Tweet from {{ partial "tweets/date.html" .Date }}</h1>
+	<blockquote class="padded tweet" aria-label="Tweet content">
+		{{ .Content }}
+		{{ range .Params.photos }}
+			{{ partial "tweets/photo.html" (dict "tweetID" $tweetID "photo" .) }}
+		{{ end }}
+		{{ with .Store.Get "youtubeVideoID" }}
+			<iframe
+				src="https://www.youtube-nocookie.com/embed/{{ . }}"
+				allow="fullscreen"
+				sandbox="allow-popups allow-same-origin allow-scripts"
+				referrerpolicy="no-referrer"
+				credentialless="true"
+				class="tweet-video"
+				title="YouTube video"
+			></iframe>
+		{{ end }}
+	</blockquote>
+	{{ with .Params.context }}
+		<footer aria-labelledby="context">
+			<h2 id="context">Context</h2>
+			{{ $.RenderString (dict "display" "block") . }}
+		</footer>
+	{{ end }}
+</article>
