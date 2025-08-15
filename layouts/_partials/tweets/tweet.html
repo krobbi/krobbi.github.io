@@ -2,8 +2,8 @@
 {{ if not $tweetID }}
 	{{ errorf "The Tweet page %q requires a Tweet ID." .RelPermalink }}
 {{ end }}
-<article aria-label="Archived Tweet">
-	<h1>Tweet from {{ partial "tweets/date.html" .Date }}</h1>
+<article aria-labelledby="tweet-{{ $tweetID }}">
+	<h1 id="tweet-{{ $tweetID }}">Tweet from {{ partial "tweets/date.html" .Date }}</h1>
 	<blockquote class="padded tweet" aria-label="Tweet content">
 		{{ .Content }}
 		{{ range .Params.photos }}
@@ -22,8 +22,8 @@
 		{{ end }}
 	</blockquote>
 	{{ with .Params.context }}
-		<footer aria-labelledby="context">
-			<h2 id="context">Context</h2>
+		<footer aria-labelledby="tweet-{{ $tweetID }}-context">
+			<h2 id="tweet-{{ $tweetID }}-context">Context</h2>
 			{{ $.RenderString (dict "display" "block") . }}
 		</footer>
 	{{ end }}
