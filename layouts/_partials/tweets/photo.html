@@ -1,3 +1,4 @@
+{{ $thumbSize := 540 }}
 {{ $id := .photo.id }}
 {{ if not $id }}
 	{{ errorf "Tweet #%s has a photo with a missing ID." .tweetID }}
@@ -7,8 +8,8 @@
 	{{ errorf "The Tweet photo %q requires alt text. See Tweet #%s" $id .tweetID }}
 {{ end }}
 {{ $photo := resources.Get (print "img/tweets/" $id ".png") }}
-{{ $thumb := $photo.Fit "540x540 jpeg" | resources.Copy (
-	print "img/tweets/thumbnails/" $id ".jpg"
+{{ $thumb := $photo.Fit (print $thumbSize "x" $thumbSize " jpeg") | resources.Copy (
+	print "img/tweets/" $id "-thumb.jpg"
 ) }}
 {{ with index site.Data.tweet_photo_jpeg_quality $id }}
 	{{ $jpegPhoto := $photo.Process (print "jpeg q" .) | resources.Copy (print "img/tweets/" $id ".jpg") }}
@@ -16,6 +17,13 @@
 		{{ errorf "JPEG Tweet photo %q is larger than its source. Reduce its quality" $id }}
 	{{ end }}
 	{{ $photo = $jpegPhoto }}
+{{ end }}
+{{ if and
+	(le $photo.Width $thumbSize)
+	(le $photo.Height $thumbSize)
+	(le (len $photo.Content) (len $thumb.Content))
+}}
+	{{ $thumb = $photo }}
 {{ end }}
 <a
 	href="{{ $photo.RelPermalink }}"
