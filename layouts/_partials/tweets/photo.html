@@ -10,6 +10,9 @@
 {{ $thumb := $photo.Fit "540x540 jpeg" | resources.Copy (
 	print "img/tweets/thumbnails/" $id ".jpg"
 ) }}
+{{ if in site.Data.jpeg_tweet_photos $id }}
+	{{ $photo = $photo.Process "jpeg q100" | resources.Copy (print "img/tweets/" $id ".jpg") }}
+{{ end }}
 <a
 	href="{{ $photo.RelPermalink }}"
 	target="_blank"
