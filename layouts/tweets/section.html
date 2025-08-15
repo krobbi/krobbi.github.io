@@ -1,12 +1,9 @@
 {{ define "main" }}
 	<h1>{{ .Title }}</h1>
 	{{ .Content }}
-	<nav aria-label="Tweet">
-		<ul>
-			{{ range .Pages }}
-				{{ $summary := .Summary | plainify | truncate 50 }}
-				<li><a href="{{ .RelPermalink }}">{{ partial "tweets/date.html" .Date }}: {{ $summary }}</a></li>
-			{{ end }}
-		</ul>
-	</nav>
+	<section aria-label="Archived Tweets">
+		{{ range .Pages }}
+			{{ partial "tweets/tweet.html" . }}
+		{{ end }}
+	</section>
 {{ end }}

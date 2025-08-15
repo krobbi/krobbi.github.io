@@ -1,4 +1,5 @@
-{{ $isTweet := and (eq .Section "tweets") (eq .Kind "page") }}
+{{ $isTweetsSection := eq .Section "tweets" }}
+{{ $isTweet := and $isTweetsSection (eq .Kind "page") }}
 {{ $description := .Description }}
 {{ if not $description }}
 	{{ if $isTweet }}
@@ -20,7 +21,7 @@
 <meta name="author" content="Chris Roberts">
 <link rel="canonical" href="{{ .Permalink }}">
 {{ partial "head/style.html" "main" }}
-{{ if $isTweet }}
+{{ if $isTweetsSection }}
 	{{ partial "head/style.html" "tweets" }}
 {{ end }}
 {{ hugo.Generator }}
