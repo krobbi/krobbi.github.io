@@ -24,11 +24,7 @@
 	{{ end }}
 	{{ $photo = $jpegPhoto }}
 {{ end }}
-{{ if and
-	(le $photo.Width $thumbSize)
-	(le $photo.Height $thumbSize)
-	(le (len $photo.Content) (len $thumb.Content))
-}}
+{{ if and (ge $photo.Width $photo.Height) (le (len $photo.Content) (len $thumb.Content)) }}
 	{{ $thumb = $photo }}
 {{ end }}
 <a
