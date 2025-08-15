@@ -3,6 +3,7 @@
 	{{ .Content }}
 	<section aria-label="Archived Tweets">
 		{{ range .Pages }}
+			<hr aria-hidden="true">
 			{{ partial "tweets/tweet.html" (dict "tweet" . "isPreview" true) }}
 		{{ end }}
 	</section>

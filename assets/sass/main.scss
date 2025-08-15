@@ -57,6 +57,15 @@ a {
 	}
 }
 
+hr {
+	// Add a margin to the top and bottom of horizontal separators.
+	margin: 1em 0;
+
+	// Add a rounded border to horizontal separators.
+	border: 0.125em solid #ddd;
+	border-radius: 0.125em;
+}
+
 audio {
 	// Add a margin to the top of audio players.
 	margin-top: 0.5em;
