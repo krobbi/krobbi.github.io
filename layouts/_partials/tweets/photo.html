@@ -8,9 +8,15 @@
 	{{ errorf "The Tweet photo %q requires alt text. See Tweet #%s" $id .tweetID }}
 {{ end }}
 {{ $photo := resources.Get (print "img/tweets/" $id ".png") }}
-{{ $thumb := $photo.Fit (print $thumbSize "x" $thumbSize " jpeg") | resources.Copy (
+{{ $thumb := $photo.Fit (print $thumbSize "x" $thumbSize " png") | resources.Copy (
+	print "img/tweets/" $id "-thumb.png"
+) }}
+{{ $jpegThumb := $photo.Fit (print $thumbSize "x" $thumbSize " jpeg") | resources.Copy (
 	print "img/tweets/" $id "-thumb.jpg"
 ) }}
+{{ if lt (len $jpegThumb.Content) (len $thumb.Content) }}
+	{{ $thumb = $jpegThumb }}
+{{ end }}
 {{ with index site.Data.tweet_photo_jpeg_quality $id }}
 	{{ $jpegPhoto := $photo.Process (print "jpeg q" .) | resources.Copy (print "img/tweets/" $id ".jpg") }}
 	{{ if gt (len $jpegPhoto.Content) (len $photo.Content) }}
