@@ -1,8 +1,10 @@
 {{ define "main" }}
-	{{ partial "tweets/tweet.html" . }}
+	{{ partial "tweets/tweet.html" (dict "tweet" . "isPreview" false) }}
 	<nav aria-label="Twitter archive">
 		<ul>
-			<li><a href="{{ .Parent.RelPermalink }}">Go back to Twitter archive</a></li>
+			<li><a href="{{ .Parent.RelPermalink }}#tweet-{{ .Params.tweetID }}">
+				Go back to Twitter archive
+			</a></li>
 			{{ with .PrevInSection }}
 				<li><a href="{{ .RelPermalink }}">Go to previous Tweet</a></li>
 			{{ end }}

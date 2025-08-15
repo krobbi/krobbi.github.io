@@ -1,17 +1,32 @@
-{{ $tweetID := .Params.tweetID }}
+{{ $tweet := .tweet }}
+{{ $tweetParams := $tweet.Params }}
+{{ $tweetID := $tweetParams.tweetID }}
+{{ $tweetTitle := print "Tweet from " (partial "tweets/date.html" $tweet.Date) | safeHTML }}
+{{ $isPreview := .isPreview }}
 {{ if not $tweetID }}
 	{{ errorf "The Tweet page %q requires a Tweet ID." .RelPermalink }}
 {{ end }}
 <article aria-labelledby="tweet-{{ $tweetID }}">
-	<h1 id="tweet-{{ $tweetID }}">Tweet from {{ partial "tweets/date.html" .Date }}</h1>
+	{{ if $isPreview }}
+		<h2 id="tweet-{{ $tweetID }}"><a href="{{ $tweet.RelPermalink }}">{{ $tweetTitle }}</a></h2>
+	{{ else }}
+		<h1 id="tweet-{{ $tweetID }}">{{ $tweetTitle }}</h1>
+	{{ end }}
 	<blockquote class="padded tweet" aria-label="Tweet content">
-		{{ .Content }}
-		{{ range .Params.photos }}
-			{{ partial "tweets/photo.html" (dict "tweetID" $tweetID "photo" .) }}
+		{{ $tweet.Content }}
+		{{ range $tweetParams.photos }}
+			{{ partial "tweets/photo.html" (dict
+				"tweetID" $tweetID
+				"photo" .
+				"isPreview" $isPreview
+			) }}
 		{{ end }}
-		{{ with .Store.Get "youtubeVideoID" }}
+		{{ with $tweet.Store.Get "youtubeVideoID" }}
 			<iframe
 				src="https://www.youtube-nocookie.com/embed/{{ . }}"
+				{{ if $isPreview }}
+					loading="lazy"
+				{{ end }}
 				allow="fullscreen"
 				sandbox="allow-popups allow-same-origin allow-scripts"
 				referrerpolicy="no-referrer"
@@ -21,10 +36,14 @@
 			></iframe>
 		{{ end }}
 	</blockquote>
-	{{ with .Params.context }}
+	{{ with $tweetParams.context }}
 		<footer aria-labelledby="tweet-{{ $tweetID }}-context">
-			<h2 id="tweet-{{ $tweetID }}-context">Context</h2>
-			{{ $.RenderString (dict "display" "block") . }}
+			{{ if $isPreview }}
+				<h3 id="tweet-{{ $tweetID }}-context">Context</h3>
+			{{ else }}
+				<h2 id="tweet-{{ $tweetID }}-context">Context</h2>
+			{{ end }}
+			{{ $tweet.RenderString (dict "display" "block") . }}
 		</footer>
 	{{ end }}
 </article>

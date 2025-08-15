@@ -7,7 +7,21 @@
 	{{ errorf "The Tweet photo %q requires alt text. See Tweet #%s" $id .tweetID }}
 {{ end }}
 {{ $photo := resources.Get (print "img/tweets/" $id ".png") }}
-{{ $thumb := $photo.Fit "540x540 jpeg" | resources.Copy (print "img/tweets/thumbnails/" $id ".jpg") }}
-<a href="{{ $photo.RelPermalink }}" target="_blank" rel="noopener noreferrer" class="tweet-photo-link">
-	<img src="{{ $thumb.RelPermalink }}" alt="{{ $alt }}" class="tweet-photo">
+{{ $thumb := $photo.Fit "540x540 jpeg" | resources.Copy (
+	print "img/tweets/thumbnails/" $id ".jpg"
+) }}
+<a
+	href="{{ $photo.RelPermalink }}"
+	target="_blank"
+	rel="noopener noreferrer"
+	class="tweet-photo-link"
+>
+	<img
+		src="{{ $thumb.RelPermalink }}"
+		{{ if .isPreview }}
+			loading="lazy"
+		{{ end }}
+		alt="{{ $alt }}"
+		class="tweet-photo"
+	>
 </a>

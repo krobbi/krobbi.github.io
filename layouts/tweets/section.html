@@ -3,7 +3,7 @@
 	{{ .Content }}
 	<section aria-label="Archived Tweets">
 		{{ range .Pages }}
-			{{ partial "tweets/tweet.html" . }}
+			{{ partial "tweets/tweet.html" (dict "tweet" . "isPreview" true) }}
 		{{ end }}
 	</section>
 {{ end }}
