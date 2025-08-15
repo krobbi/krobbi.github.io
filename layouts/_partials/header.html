@@ -1,7 +1,7 @@
 <header class="banner">
 	<nav class="centred" aria-label="Main">
 		<ul class="navbar">
-			{{ range .Site.Menus.main -}}
+			{{ range site.Menus.main -}}
 				<li class="navbar-item">
 					{{ if $.Page.IsMenuCurrent .Menu . }}
 						<a href="{{ .URL }}" class="current navbar-link" aria-current="page">{{ .Name }}</a>

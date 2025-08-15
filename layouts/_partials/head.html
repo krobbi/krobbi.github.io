@@ -15,7 +15,7 @@
 	{{/* The `noarchive` rule opts out of some AI training bots. */}}
 	<meta name="robots" content="{{ . }}, noarchive">
 {{ end }}
-<title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
+<title>{{ with .Title }}{{ . }} | {{ end }}{{ site.Title }}</title>
 <link rel="icon" href="/favicon.png">
 <meta name="description" content="{{ $description }}">
 <meta name="author" content="Chris Roberts">
@@ -25,7 +25,7 @@
 	{{ partial "head/style.html" "tweets" }}
 {{ end }}
 {{ hugo.Generator }}
-<meta property="og:title" content="{{ or .Title .Site.Title }}">
+<meta property="og:title" content="{{ or .Title site.Title }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:description" content="{{ $description }}">

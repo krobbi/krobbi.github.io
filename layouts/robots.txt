@@ -1,4 +1,4 @@
-{{ range cond hugo.IsProduction .Site.Data.disallowed_user_agents slice -}}
+{{ range cond hugo.IsProduction site.Data.disallowed_user_agents slice -}}
 User-agent: {{ . }}
 Disallow: /
 
