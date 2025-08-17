@@ -3,7 +3,7 @@
 {{ $description := .Description }}
 {{ if not $description }}
 	{{ if $isTweet }}
-		{{ $description = .Date.Format "Archived Tweet from January 2, 2006 at 3:04 PM" }}
+		{{ $description = .Date.Local.Format "Archived Tweet from January 2, 2006 at 3:04 PM" }}
 	{{ else }}
 		{{ errorf "The page %q requires a description." (replace .File.Path `\` "/") }}
 	{{ end }}
