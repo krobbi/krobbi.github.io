@@ -1,8 +1,10 @@
 # Table of link IDs with their names and URLs.
-# Define links for third-party software.
 audacity:
   name: Audacity
   url: https://www.audacityteam.org/
+godot:
+  name: Godot
+  url: https://godotengine.org/
 lmms:
   name: LMMS
   url: https://lmms.io/
