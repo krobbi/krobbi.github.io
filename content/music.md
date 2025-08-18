@@ -3,7 +3,7 @@ title: Music
 description: Music by Krobbizoid
 ---
 
-I have produced electronic music with [LMMS](https://lmms.io) - a free,
+I have produced electronic music with {{< link lmms >}} - a free,
 open-source digital audio workstation (DAW) - since 2016. I don't usually try
 to make a specific genre. The result is usually something melodic and pop-y,
 with some influences from ambient music.

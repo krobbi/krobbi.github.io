@@ -1,0 +1,9 @@
+{{ $id := .Get 0 }}
+{{- if not $id }}
+	{{ errorf "The %q shortcode requires a positional ID argument. See %s" .Name .Position }}
+{{ end }}
+{{- with index site.Data.named_links $id -}}
+	<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+{{- else }}
+	{{ errorf "There is no named link with the id %q. See %s" $id .Position }}
+{{ end -}}
