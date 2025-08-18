@@ -1,28 +1,58 @@
 # Table of link IDs with their names and URLs.
+aBeginning:
+  name: A Beginning
+  url: https://krobbizoid.bandcamp.com/album/a-beginning-single
 afrogalypse:
   name: Afrogalypse
   url: https://krobbizoid.itch.io/afrogalypse
+artBlock:
+  name: Art Block
+  url: https://krobbizoid.bandcamp.com/album/art-block
 audacity:
   name: Audacity
   url: https://www.audacityteam.org/
+breeze:
+  name: Breeze
+  url: https://krobbizoid.bandcamp.com/track/breeze
+chamomile:
+  name: Chamomile
+  url: https://krobbizoid.bandcamp.com/track/chamomile
 coldestNight:
   name: Coldest Night
   url: https://krobbizoid.itch.io/coldest-night
 craftingInterpreters:
   name: Crafting Interpreters
   url: https://craftinginterpreters.com/
+distance:
+  name: Distance
+  url: https://krobbizoid.bandcamp.com/track/distance
+distantLanterns:
+  name: Distant Lanterns
+  url: https://krobbizoid.bandcamp.com/album/distant-lanterns-single
+dreamOn:
+  name: Dream On
+  url: https://krobbizoid.bandcamp.com/track/dream-on
 godot:
   name: Godot
   url: https://godotengine.org/
 lmms:
   name: LMMS
   url: https://lmms.io/
+malfunction:
+  name: Malfunction
+  url: https://krobbizoid.bandcamp.com/track/malfunction
 nowHere:
   name: Now-Here
   url: https://krobbizoid.bandcamp.com/album/now-here
 pandemonium:
   name: Pandemonium
   url: https://ruxaroh.itch.io/pandemonium
+stillSleepy:
+  name: Still Sleepy
+  url: https://krobbizoid.bandcamp.com/track/still-sleepy
 theHouseAlwaysWins:
   name: The House Always Wins
   url: https://ruxaroh.itch.io/the-house-always-wins
+wings:
+  name: Wings
+  url: https://krobbizoid.bandcamp.com/track/wings
