@@ -14,6 +14,9 @@ audacity:
 bandcamp:
   name: Bandcamp
   url: https://krobbizoid.bandcamp.com/
+bluesky:
+  name: Bluesky
+  url: https://bsky.app/profile/krobbizoid.bsky.social
 breeze:
   name: Breeze
   url: https://krobbizoid.bandcamp.com/track/breeze
@@ -35,9 +38,15 @@ distantLanterns:
 dreamOn:
   name: Dream On
   url: https://krobbizoid.bandcamp.com/track/dream-on
+gitHub:
+  name: GitHub
+  url: https://github.com/krobbi
 godot:
   name: Godot
   url: https://godotengine.org/
+itchIO:
+  name: itch.io
+  url: https://krobbizoid.itch.io/
 lmms:
   name: LMMS
   url: https://lmms.io/
