@@ -1,4 +1,7 @@
 # Table of link IDs with their names and URLs.
+afrogalypse:
+  name: Afrogalypse
+  url: https://krobbizoid.itch.io/afrogalypse
 audacity:
   name: Audacity
   url: https://www.audacityteam.org/
@@ -11,3 +14,9 @@ godot:
 lmms:
   name: LMMS
   url: https://lmms.io/
+pandemonium:
+  name: Pandemonium
+  url: https://ruxaroh.itch.io/pandemonium
+theHouseAlwaysWins:
+  name: The House Always Wins
+  url: https://ruxaroh.itch.io/the-house-always-wins
