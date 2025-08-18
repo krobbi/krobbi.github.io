@@ -8,6 +8,9 @@ audacity:
 coldestNight:
   name: Coldest Night
   url: https://krobbizoid.itch.io/coldest-night
+craftingInterpreters:
+  name: Crafting Interpreters
+  url: https://craftinginterpreters.com/
 godot:
   name: Godot
   url: https://godotengine.org/
