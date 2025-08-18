@@ -41,12 +41,18 @@ lmms:
 malfunction:
   name: Malfunction
   url: https://krobbizoid.bandcamp.com/track/malfunction
+nineSlicing:
+  name: "9-Slicing"
+  url: https://en.wikipedia.org/wiki/9-slice_scaling
 nowHere:
   name: Now-Here
   url: https://krobbizoid.bandcamp.com/album/now-here
 pandemonium:
   name: Pandemonium
   url: https://ruxaroh.itch.io/pandemonium
+raycasting:
+  name: Raycasting
+  url: https://en.wikipedia.org/wiki/Ray_casting#Concept
 sol:
   name: Sol
   url: https://github.com/krobbi/sol-engine
