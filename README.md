@@ -1,5 +1,5 @@
 # krobbi.github.io
-[krobbi.github.io](https://krobbi.github.io) is my personal GitHub Pages
+[krobbi.github.io](https://krobbi.github.io/) is my personal GitHub Pages
 website.
 
 # Static Site Generation
@@ -8,7 +8,7 @@ with their content fully rendered. This improves page load performance and
 compatibility at the expense of storing larger files with duplicate data.
 
 The static files are generated from this repository using the extended edition
-of [Hugo](https://gohugo.io). This is the only dependency. The site is
+of [Hugo](https://gohugo.io/). This is the only dependency. The site is
 automatically regenerated and deployed every time a `deploy/YYYY-MM-DD-rN`[^1]
 tag is pushed to GitHub.
 
