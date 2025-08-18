@@ -11,6 +11,9 @@ artBlock:
 audacity:
   name: Audacity
   url: https://www.audacityteam.org/
+bandcamp:
+  name: Bandcamp
+  url: https://krobbizoid.bandcamp.com/
 breeze:
   name: Breeze
   url: https://krobbizoid.bandcamp.com/track/breeze
@@ -56,6 +59,9 @@ raycasting:
 sol:
   name: Sol
   url: https://github.com/krobbi/sol-engine
+soundCloud:
+  name: SoundCloud
+  url: https://soundcloud.com/krobbizoid
 stillSleepy:
   name: Still Sleepy
   url: https://krobbizoid.bandcamp.com/track/still-sleepy
@@ -65,3 +71,6 @@ theHouseAlwaysWins:
 wings:
   name: Wings
   url: https://krobbizoid.bandcamp.com/track/wings
+youTube:
+  name: YouTube
+  url: https://www.youtube.com/@krobbizoid

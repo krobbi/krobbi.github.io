@@ -14,9 +14,9 @@ demo of an unfinished song, "Above the Clouds":
 {{< audio src=/audio/krobbizoid-above-the-clouds-demo-3.mp3 >}}
 
 ## My Music
-I post some of my music to the following sites:
 {{< nav aria-label=Music >}}
-* [Bandcamp](https://krobbizoid.bandcamp.com)
-* [SoundCloud](https://soundcloud.com/krobbizoid)
-* [YouTube](https://www.youtube.com/@krobbizoid)
+I post some of my music to the following sites:
+* {{< link bandcamp >}}
+* {{< link soundCloud >}}
+* {{< link youTube >}}
 {{< /nav >}}
