@@ -47,6 +47,9 @@ nowHere:
 pandemonium:
   name: Pandemonium
   url: https://ruxaroh.itch.io/pandemonium
+sol:
+  name: Sol
+  url: https://github.com/krobbi/sol-engine
 stillSleepy:
   name: Still Sleepy
   url: https://krobbizoid.bandcamp.com/track/still-sleepy
