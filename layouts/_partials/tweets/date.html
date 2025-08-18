@@ -1,4 +1,4 @@
-{{ $machineDate := .UTC.Format "2006-01-02T15:04:05.000Z" -}}
-{{ $humanDate := .Local.Format "3:04&nbsp;PM &middot; Jan&nbsp;2, 2006" | safeHTML -}}
-<time datetime="{{ $machineDate }}">{{ $humanDate }}</time>
+{{ $machineDate := .Format "2006-01-02T15:04-0700" }}
+{{- $humanDate := .Format "3:04&nbsp;PM &middot; Jan&nbsp;2, 2006" | safeHTML -}}
+<time {{ printf `datetime=%q` $machineDate | safeHTMLAttr }}>{{ $humanDate }}</time>
 {{- /**/ -}}
