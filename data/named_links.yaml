@@ -17,6 +17,9 @@ godot:
 lmms:
   name: LMMS
   url: https://lmms.io/
+nowHere:
+  name: Now-Here
+  url: https://krobbizoid.bandcamp.com/album/now-here
 pandemonium:
   name: Pandemonium
   url: https://ruxaroh.itch.io/pandemonium
