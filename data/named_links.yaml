@@ -2,6 +2,9 @@
 audacity:
   name: Audacity
   url: https://www.audacityteam.org/
+coldestNight:
+  name: Coldest Night
+  url: https://krobbizoid.itch.io/coldest-night
 godot:
   name: Godot
   url: https://godotengine.org/
