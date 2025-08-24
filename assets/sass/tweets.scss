@@ -8,21 +8,21 @@
 	// Use rounded corners for Tweets.
 	border-radius: 0.5em;
 
-	// Give Tweets a different background colour to the main content's
-	// background colour.
+	// Give Tweets a different background color to the main content's
+	// background color.
 	background: linear-gradient(#eee, #ddd), #eee;
 }
 
 .tweet-decoration {
-	// Use a different text colour for hashtags and mentions.
-	color: $accent-colour;
+	// Use a different text color for hashtags and mentions.
+	color: $accent-color;
 }
 
 .tweet-photo-link {
 	// Display photo links as blocks to enable margins.
 	display: block;
 
-	// Centre photo links horizontally and add a margin above them.
+	// Center photo links horizontally and add a margin above them.
 	margin: 1em auto 0;
 
 	// Add a rounded border to photo links.
@@ -33,7 +33,7 @@
 	width: fit-content;
 
 	&:hover {
-		// Use a different border colour when hovering over photo links.
+		// Use a different border color when hovering over photo links.
 		border-color: #cdd;
 	}
 }
