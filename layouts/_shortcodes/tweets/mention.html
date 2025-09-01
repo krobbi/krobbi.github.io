@@ -1,5 +1,5 @@
-{{ with .Get "user" -}}
+{{ with .Get 0 -}}
 	<span class="tweet-decoration" title="Twitter mention">@{{ . }}</span>
 {{- else }}
-	{{ errorf "The %q shortcode requires a user argument. See %s" .Name .Position }}
+	{{ errorf "The %q shortcode requires a positional user argument. See %s" .Name .Position }}
 {{ end -}}
