@@ -10,8 +10,10 @@ with some influences from ambient music.
 
 ## Demo
 I plan to add a discography to this section of the site. Until then, enjoy this
-demo of an unfinished song, "Above the Clouds":
-{{< audio src=/audio/krobbizoid-above-the-clouds-demo-3.mp3 >}}
+demo of an unfinished song, 'Above the Clouds':
+{{< audio
+  src=/audio/krobbizoid-above-the-clouds-demo-3.mp3
+  download="Krobbizoid - Above the Clouds (Demo 3).mp3" >}}
 
 ## My Music
 {{< nav aria-label=Music >}}
