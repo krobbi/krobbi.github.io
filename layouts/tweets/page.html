@@ -2,15 +2,15 @@
 	{{ partial "tweets/tweet.html" (dict "tweet" . "isPreview" false) }}
 	<nav aria-label="Twitter archive">
 		<ul>
-			<li><a href="{{ .Parent.RelPermalink }}#tweet-{{ .Params.tweetID }}">
-				Go back to Twitter archive
-			</a></li>
-			{{ with .PrevInSection }}
-				<li><a href="{{ .RelPermalink }}">Go to previous Tweet</a></li>
-			{{ end }}
 			{{ with .NextInSection }}
-				<li><a href="{{ .RelPermalink }}">Go to next Tweet</a></li>
+			<li><a href="{{ .RelPermalink }}" rel="next">Next Tweet</a></li>
 			{{ end }}
+			{{ with .PrevInSection }}
+			<li><a href="{{ .RelPermalink }}" rel="prev">Previous Tweet</a></li>
+			{{ end }}
+			<li><a href="{{ .Parent.RelPermalink }}#tweet-{{ .Params.tweetID }}">
+				All Tweets
+			</a></li>
 		</ul>
 	</nav>
 {{ end }}
