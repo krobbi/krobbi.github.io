@@ -28,6 +28,8 @@ disableHugoGeneratorInject: true
 markup:
   goldmark:
     parser:
+      attribute:
+        block: true
       autoHeadingID: false
 
 # Do not serve XML metadata from the development server.
