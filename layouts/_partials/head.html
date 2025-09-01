@@ -1,12 +1,10 @@
+{{ $title := .Title }}
+{{ $description := .Description }}
 {{ $isTweetsSection := eq .Section "tweets" }}
 {{ $isTweet := and $isTweetsSection (eq .Kind "page") }}
-{{ $description := .Description }}
-{{ if not $description }}
-	{{ if $isTweet }}
-		{{ $description = .Date.Local.Format "Archived Tweet from January 2, 2006 at 3:04 PM" }}
-	{{ else }}
-		{{ errorf "The page %q requires a description." (replace .File.Path `\` "/") }}
-	{{ end }}
+{{ if $isTweet }}
+	{{ $title = .Date.Local.Format "Tweet from 2006-01-02 at 15:04" }}
+	{{ $description = .Date.Local.Format "Archived Tweet from January 2, 2006 at 3:04 PM" }}
 {{ end }}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +13,7 @@
 	{{/* The `noarchive` rule opts out of some AI training bots. */}}
 	<meta name="robots" content="{{ . }}, noarchive">
 {{ end }}
-<title>{{ with .Title }}{{ . }} | {{ end }}{{ site.Title }}</title>
+<title>{{ with $title }}{{ . }} | {{ end }}{{ site.Title }}</title>
 <link rel="icon" href="/favicon.png">
 <meta name="description" content="{{ $description }}">
 <meta name="author" content="Chris Roberts">
@@ -25,7 +23,7 @@
 	{{ partial "head/style.html" "tweets" }}
 {{ end }}
 {{ hugo.Generator }}
-<meta property="og:title" content="{{ or .Title site.Title }}">
+<meta property="og:title" content="{{ or $title site.Title }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:description" content="{{ $description }}">
