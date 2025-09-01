@@ -8,10 +8,10 @@ music I've created, but it's still being designed and filled out.
 ## Links
 {{< nav aria-label="Social media" >}}
 I have accounts on the following social media sites:
-* {{< link gitHub >}}
-* {{< link bandcamp >}}
-* {{< link soundCloud >}}
-* {{< link youTube >}}
-* {{< link itchIO >}}
-* {{< link bluesky >}}
+* {{% link gitHub %}}
+* {{% link bandcamp %}}
+* {{% link soundCloud %}}
+* {{% link youTube %}}
+* {{% link itchIO %}}
+* {{% link bluesky %}}
 {{< /nav >}}

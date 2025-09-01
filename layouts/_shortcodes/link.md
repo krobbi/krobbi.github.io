@@ -4,7 +4,7 @@
 {{ end }}
 {{- with index site.Data.named_links $id }}
 	{{- $text := or ($.Get 1) .name -}}
-	<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ $text }}</a>
+	[{{ $text }}]({{ .url }})
 {{- else }}
 	{{ errorf "There is no named link with the id %q. See %s" $id .Position }}
 {{ end -}}

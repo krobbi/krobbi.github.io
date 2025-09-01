@@ -1,0 +1,11 @@
+<a
+	href="{{ safeURL .Destination }}"
+	{{ if (urls.Parse .Destination).IsAbs }}
+		target="_blank"
+		rel="external noopener noreferrer"
+	{{ end }}
+	{{ with .Title }}
+		title="{{ . }}"
+	{{ end }}
+>{{ with .Text }}{{ . }}{{ end }}</a>
+{{- /**/ -}}

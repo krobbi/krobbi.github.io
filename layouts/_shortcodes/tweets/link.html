@@ -8,6 +8,6 @@
 {{- else }}
 	{{- with findRESubmatch `^youtu(?:be\.com/watch\?v=|\.be/)([\w-]{11})$` $text }}
 		{{- $.Page.Store.Set "youtubeVideoID" (index (index . 0) 1) }}
-	{{- end -}}
-	<a href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $text }}</a>
+	{{- end }}
+	{{- .Page.RenderString (printf "[%s](%s)" $text $url) }}
 {{- end -}}
