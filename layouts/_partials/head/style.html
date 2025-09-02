@@ -1,13 +1,18 @@
-{{ with resources.Get (print "sass/" . ".scss") }}
+{{ with resources.Get (printf "sass/%s.scss" .) }}
 	{{ if eq $ "common" }}
 		{{ errorf "The %q stylesheet was linked." $ }}
 	{{ end }}
 	{{ $options := dict
-		"targetPath" (print "css/" $ ".css")
+		"targetPath" (printf "css/%s.css" $)
 		"outputStyle" (cond hugo.IsProduction "compressed" "expanded")
 		"transpiler" "libsass"
 	}}
-	{{ with toCSS $options . }}
-		<link rel="stylesheet" href="{{ .RelPermalink }}">
+	{{ with . | toCSS $options }}
+		{{ $stylesheet := . }}
+		{{ if hugo.IsProduction }}
+			{{ $hash := substr (sha256 .Content) 0 8 }}
+			{{ $stylesheet = . | resources.Copy (printf "css/%s-%s.css" $ $hash) }}
+		{{ end }}
+		<link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}">
 	{{ end }}
 {{ end }}
