@@ -1,5 +1,6 @@
 # List of user agents to disallow in `robots.txt`, sourced from
 # https://github.com/ai-robots-txt/ai.robots.txt/blob/main/robots.txt
+- AddSearchBot
 - AI2Bot
 - Ai2Bot-Dolma
 - aiHitBot
@@ -10,14 +11,17 @@
 - Applebot-Extended
 - Awario
 - bedrockbot
+- bigsur.ai
 - Brightbot 1.0
 - Bytespider
 - CCBot
+- ChatGPT Agent
 - ChatGPT-User
 - Claude-SearchBot
 - Claude-User
 - Claude-Web
 - ClaudeBot
+- CloudVertexBot
 - cohere-ai
 - cohere-training-data-crawler
 - Cotoyogi
@@ -36,6 +40,7 @@
 - Gemini-Deep-Research
 - Google-CloudVertexBot
 - Google-Extended
+- Google-Firebase
 - GoogleAgent-Mariner
 - GoogleOther
 - GoogleOther-Image
@@ -47,6 +52,7 @@
 - img2dataset
 - ISSCyberRiskCrawler
 - Kangaroo Bot
+- LinerBot
 - meta-externalagent
 - Meta-ExternalAgent
 - meta-externalfetcher
@@ -59,6 +65,7 @@
 - OAI-SearchBot
 - omgili
 - omgilibot
+- OpenAI
 - Operator
 - PanguBot
 - Panscient
@@ -75,8 +82,8 @@
 - Scrapy
 - SemrushBot-OCOB
 - SemrushBot-SWA
+- ShapBot
 - Sidetrade indexer bot
-- SummalyBot
 - Thinkbot
 - TikTokSpider
 - Timpibot
@@ -84,6 +91,7 @@
 - WARDBot
 - Webzio-Extended
 - wpbot
+- YaK
 - YandexAdditional
 - YandexAdditionalBot
 - YouBot
