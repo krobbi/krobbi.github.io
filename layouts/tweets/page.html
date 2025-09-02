@@ -3,10 +3,10 @@
 	<nav aria-label="Twitter archive">
 		<ul>
 			{{ with .NextInSection }}
-			<li><a href="{{ .RelPermalink }}" rel="next">Next Tweet</a></li>
+				<li><a href="{{ .RelPermalink }}" rel="next">Next Tweet</a></li>
 			{{ end }}
 			{{ with .PrevInSection }}
-			<li><a href="{{ .RelPermalink }}" rel="prev">Previous Tweet</a></li>
+				<li><a href="{{ .RelPermalink }}" rel="prev">Previous Tweet</a></li>
 			{{ end }}
 			<li><a href="{{ .Parent.RelPermalink }}#tweet-{{ .Params.tweetID }}">
 				All Tweets
