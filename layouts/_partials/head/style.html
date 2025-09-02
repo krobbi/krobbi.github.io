@@ -10,7 +10,7 @@
 	{{ with . | toCSS $options }}
 		{{ $stylesheet := . }}
 		{{ if hugo.IsProduction }}
-			{{ $hash := substr (sha256 .Content) 0 8 }}
+			{{ $hash := substr (.Content | sha256) 0 8 }}
 			{{ $stylesheet = . | resources.Copy (printf "css/%s-%s.css" $ $hash) }}
 		{{ end }}
 		<link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}">

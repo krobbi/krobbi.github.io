@@ -1,7 +1,7 @@
 {{ $tweet := .tweet }}
 {{ $tweetParams := $tweet.Params }}
 {{ $tweetID := $tweetParams.tweetID }}
-{{ $tweetTitle := print "Tweet from " (partial "tweets/date.html" $tweet.Date.Local) | safeHTML }}
+{{ $tweetTitle := printf "Tweet from %s" (partial "tweets/date.html" $tweet.Date.Local) | safeHTML }}
 {{ $isPreview := .isPreview }}
 {{ if not $tweetID }}
 	{{ errorf "The Tweet page %q requires a Tweet ID." .RelPermalink }}
