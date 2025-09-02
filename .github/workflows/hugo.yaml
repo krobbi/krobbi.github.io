@@ -7,7 +7,7 @@ name: Deploy site to GitHub Pages
 on:
   push:
     tags:
-      - "deploy/20[2-9][0-9]-[01][0-9]-[0-3][0-9]-r[0-9]"
+      - "deploy/2025-[01][0-9]-[0-3][0-9]-r[0-9]"
   workflow_dispatch:
 
 # Grant permissions to deploy to GitHub pages.
@@ -31,45 +31,82 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DART_SASS_VERSION: 1.89.2
-      HUGO_VERSION: 0.148.2
-      HUGO_ENVIRONMENT: production
+      DART_SASS_VERSION: 1.91.0
+      GO_VERSION: 1.25.0
+      HUGO_VERSION: 0.149.0
+      NODE_VERSION: 22.18.0
       TZ: Europe/London
     steps:
-      - name: Install Hugo
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
-          sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      # # Uncomment if using Dart Sass:
-      # - name: Install Dart Sass
-      #   run: |
-      #     wget -O ${{ runner.temp }}/dart-sass.tar.gz https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz
-      #     tar -xf ${{ runner.temp }}/dart-sass.tar.gz --directory ${{ runner.temp }}
-      #     mv ${{ runner.temp }}/dart-sass/ /usr/local/bin
-      #     echo "/usr/local/bin/dart-sass" >> $GITHUB_PATH
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         # # Uncomment if using Git submodules:
         # with:
         #   submodules: recursive
         #   fetch-depth: 0
-      - name: Configure GitHub Pages
+
+      # # Uncomment if using Go scripts:
+      # - name: Set up Go
+      #   uses: actions/setup-go@v5
+      #   with:
+      #     go-version: ${{ env.GO_VERSION }}
+      #     cache: false
+
+      # # Uncomment if using Node.js packages:
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: ${{ env.NODE_VERSION }}
+
+      - name: Set up GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      - name: Create executable directory
+        run: |
+          mkdir -p "${HOME}/.local"
+
+      # # Uncomment if using Dart Sass:
+      # - name: Install Dart Sass
+      #   run: |
+      #     curl -sLJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+      #     tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+      #     rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+      #     echo "${HOME}/.local/dart-sass" >> "${GITHUB_PATH}"
+
+      - name: Install Hugo
+        run: |
+          curl -sLJO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          mkdir "${HOME}/.local/hugo"
+          tar -C "${HOME}/.local/hugo" -xf "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          rm "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
+
+      # Add the following commands if applicable:
+      # echo "Dart Sass: $(sass --version)"
+      # echo "Go: $(go version)"
+      # echo "Node.js: $(node --version)"
+      - name: Verify installation
+        run: |
+          echo "Hugo: $(hugo version)"
+
       # # Uncomment if using Node.js packages:
       # - name: Install Node.js packages
-      #   run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      #   run: |
+      #     [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
+
+      - name: Configure Git
+        run: |
+          git config core.quotepath false
+
       - name: Restore cache
         id: cache-restore
         uses: actions/cache/restore@v4
         with:
-          path: |
-            ${{ runner.temp }}/hugo_cache
+          path: ${{ runner.temp }}/hugo_cache
           key: hugo-${{ github.run_id }}
           restore-keys:
             hugo-
-      - name: Configure Git
-        run: git config core.quotepath false
+
       - name: Generate site with Hugo
         run: |
           hugo \
@@ -77,17 +114,19 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
+
       - name: Save cache
         id: cache-save
         uses: actions/cache/save@v4
         with:
-          path: |
-            ${{ runner.temp }}/hugo_cache
+          path: ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
       - name: Upload generated site
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+
   deploy:
     environment:
       name: github-pages
