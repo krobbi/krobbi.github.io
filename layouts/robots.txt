@@ -1,0 +1,12 @@
+{{ range cond hugo.IsProduction site.Data.disallowed_user_agents slice -}}
+User-agent: {{ . }}
+Disallow: /
+
+{{ end -}}
+
+User-agent: *
+{{ if hugo.IsProduction -}}
+	Sitemap: {{ absURL "sitemap.xml" }}
+{{ else -}}
+	Disallow: /
+{{ end -}}

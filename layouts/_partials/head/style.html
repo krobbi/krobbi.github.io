@@ -1,0 +1,15 @@
+{{ with resources.Get (printf "sass/%s.scss" .) }}
+	{{ $options := dict
+		"targetPath" (printf "css/%s.css" $)
+		"outputStyle" (cond hugo.IsProduction "compressed" "expanded")
+		"transpiler" "libsass"
+	}}
+	{{ with . | toCSS $options }}
+		{{ $stylesheet := . }}
+		{{ if hugo.IsProduction }}
+			{{ $hash := substr (.Content | sha256) 0 8 }}
+			{{ $stylesheet = . | resources.Copy (printf "css/%s-%s.css" $ $hash) }}
+		{{ end }}
+		<link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}">
+	{{ end }}
+{{ end }}

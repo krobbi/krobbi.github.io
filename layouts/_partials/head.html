@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{ with cond hugo.IsProduction (or .Params.robots "index, follow") "noindex, nofollow" }}
+	{{/* The `noarchive` rule opts out of some AI training bots. */}}
+	<meta name="robots" content="{{ . }}, noarchive">
+{{ end }}
+<title>{{ with .Title }}{{ . }} | {{ end }}{{ site.Title }}</title>
+<link rel="icon" href="/favicon.png">
+<meta name="description" content="{{ .Description }}">
+<meta name="author" content="Chris Roberts">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ partial "head/style.html" "main" }}
+{{ hugo.Generator }}
+<meta property="og:title" content="{{ or .Title site.Title }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:description" content="{{ .Description }}">
+<meta property="og:locale" content="{{ replace .Language.LanguageCode `-` `_` }}">
+<meta property="og:site_name" content="krobbi.github.io">

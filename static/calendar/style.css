@@ -1,0 +1,81 @@
+* {
+	box-sizing: border-box;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	min-height: 100%;
+	color: #000;
+	background-color: #fff;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+	width: 45em;
+	min-height: 100vh;
+	margin: auto;
+	padding: 1em;
+	background-color: #ddd;
+}
+
+p, span {
+	margin: 0.5em;
+}
+
+#date {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+#date input, #date select {
+	margin: 0.5em;
+	padding: 0.5em;
+	font-size: 1em;
+	border: 0.1em solid #222;
+}
+
+#calendar {
+	border-spacing: 0;
+	color: #fff;
+}
+
+#calendar, #calendar th, #calendar td {
+	border: 0.1em solid #222;
+}
+
+#calendar th {
+	height: 2em;
+	background-color: #333;
+}
+
+#calendar td {
+	width: 3em;
+	height: 3em;
+	text-align: center;
+}
+
+#calendar tr:nth-child(even) td {
+	background-color: #444;
+}
+
+#calendar tr:nth-child(odd) td {
+	background-color: #555;
+}
+
+#calendar td.disabled {
+	background-color: #333 !important;
+}

@@ -1,0 +1,8 @@
+{{ with resources.Get (.Get "src") }}
+	<audio src="{{ .RelPermalink }}" controls preload="none"></audio>
+	{{ $download := or ($.Get "download") (.RelPermalink | path.Base) }}
+	{{/* The magic number below is `1 / (1024 * 1024)`. */}}
+	<a href="{{ .RelPermalink }}" download="{{ $download }}">Download '{{ $download }}' ({{
+		.Content | len | mul 0.00000095367431640625 | lang.FormatNumber 2
+	}}&nbsp;MiB)</a>
+{{ end }}

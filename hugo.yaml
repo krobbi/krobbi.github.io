@@ -1,0 +1,44 @@
+# Define website information.
+title: Krobbizoid
+baseURL: https://krobbi.github.io/
+languageCode: en-GB
+timeZone: Europe/London
+
+# Define the main navigation menu.
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - pageRef: /music
+      weight: 20
+
+# Generate a 'robots.txt' file. Do not generate RSS feeds or taxonomy pages.
+enableRobotsTXT: true
+disableKinds:
+  - rss
+  - taxonomy
+  - term
+
+# Do not automatically inject generator tags or heading IDs.
+disableHugoGeneratorInject: true
+markup:
+  goldmark:
+    parser:
+      attribute:
+        block: true
+      autoHeadingID: false
+
+# Allow Hugo to read information from Git.
+enableGitInfo: true
+
+# Do not serve XML metadata from the development server.
+server:
+  redirects:
+    - from: /**.xml
+      to: /404.html
+      status: 404
+      force: true
+    - from: /**
+      to: /404.html
+      status: 404

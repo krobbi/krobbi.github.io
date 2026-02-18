@@ -1,0 +1,25 @@
+# Ignore:
+ignore/
+
+# Hugo:
+public/
+resources/_gen/
+assets/jsconfig.json
+.hugo_build.lock
+hugo.darwin
+hugo.exe
+hugo.linux
+hugo_stats.json
+
+# IDE:
+.idea/
+.vscode/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+*.suo
+
+# OS:
+.DS_Store
+desktop.ini
+Thumbs.db

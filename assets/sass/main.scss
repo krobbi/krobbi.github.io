@@ -1,0 +1,150 @@
+* {
+	// Reset the box model for all elements.
+	box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+html {
+	// Allow the page to fill the viewport.
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	// Display the page vertically with flex.
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	// Make the page fill the viewport.
+	width: 100%;
+	min-height: 100%;
+
+	// Use a sans-serif font.
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+// An accent color derived from the banner image. The accent color must contrast
+// with the main content's background color for headings and links to be
+// accessible.
+$accent-color: #1e416b;
+
+h1, h2, h3, h4, h5, h6 {
+	// Add a margin to the top and bottom of headings.
+	margin: 1rem 0 0.25rem;
+
+	// Use the accent color for headings.
+	color: $accent-color;
+
+	// Use an italic serif font for headings.
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+}
+
+p {
+	// Add a margin to the top and bottom of paragraphs.
+	margin: 0.25em 0 1em;
+}
+
+a {
+	// Use the accent color and bold text for links.
+	color: $accent-color;
+	font-weight: bold;
+
+	&:hover {
+		// Use a different color when hovering over links.
+		color: #057;
+	}
+}
+
+audio {
+	// Add a margin to the top of audio players.
+	margin-top: 0.5em;
+
+	// Make audio players take up the full width of the page.
+	width: 100%;
+}
+
+// The target width of a line of text for readability.
+$line-width: 70ch;
+
+.centered {
+	// Add automatic horizontal margins to centered content.
+	margin: 0 auto;
+
+	// Limit the width of centered content.
+	max-width: $line-width;
+}
+
+.padded {
+	// Add padding to padded sections.
+	padding: 1em;
+}
+
+.navbar {
+	// Remove bullet points from the navbar.
+	list-style: none;
+}
+
+.navbar-link {
+	// Using `display: block` causes navbar links to be displayed properly in
+	// both horizontal and vertical cases. I don't know why this works.
+	display: block;
+
+	// Add padding to navbar links.
+	padding: 0.5em;
+
+	// Use a darker version of the main content's background color for a
+	// neumorphic 'tab' effect.
+	background: linear-gradient(#ccc, #bbb), #ccc;
+
+	// Remove the underline from navbar links.
+	text-decoration: none;
+
+	&:hover {
+		// Use a different background color while hovering over the navbar
+		// link.
+		background: linear-gradient(#cdd, #dee), #dee;
+	}
+
+	&.current {
+		// Use the main content's background color for the current navbar link.
+		background: linear-gradient(#ddd, #fff), #fff;
+	}
+}
+
+.footer {
+	// Force the footer the to the bottom of the page.
+	margin-top: auto;
+
+	// Use light text on a dark background.
+	background: linear-gradient($accent-color, #000), #000;
+	color: #fff8e7;
+}
+
+// Display the navbar horizontally if the screen is wide enough.
+@media screen and (min-width: $line-width) {
+	.banner {
+		// Add padding for navbar decoration.
+		padding: 2em 1em 0;
+
+		// Use a nice background image.
+		background: url("/img/banner.jpg") center, $accent-color;
+		background-size: cover;
+	}
+
+	.navbar-item {
+		// Display the navbar horizontally.
+		display: inline-block;
+	}
+
+	.navbar-link {
+		// Use rounded top corners for navbar links.
+		border-radius: 0.5em 0.5em 0 0;
+
+		// Make the navbar links bigger.
+		padding: 0.75em;
+	}
+}

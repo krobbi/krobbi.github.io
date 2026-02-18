@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="noindex">
+		<title>Calendar</title>
+		<meta property="og:title" content="Calendar">
+		<link rel="icon" href="/favicon.png">
+		<meta name="description" content="A simple calendar project.">
+		<meta property="og:description" content="A simple calendar project.">
+		<meta name="author" content="Chris Roberts (Krobbizoid)">
+		<link rel="canonical" href="https://krobbi.github.io/calendar/">
+		<meta property="og:url" content="https://krobbi.github.io/calendar/">
+		<meta property="og:type" content="website">
+		<meta property="twitter:card" content="summary">
+		<meta property="og:locale" content="en_US">
+		<meta property="og:site_name" content="krobbi.github.io">
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"url": "https://krobbi.github.io/calendar/",
+				"headline": "Calendar",
+				"description": "A simple calendar project."
+			}
+		</script>
+		<link rel="stylesheet" href="style.css">
+		<script src="calendar.js"></script>
+	</head>
+	<body>
+		<main>
+			<h1>Calendar</h1>
+			<form id="date" onsubmit="return false;">
+				<select id="month">
+					<option value="JAN">January</option>
+					<option value="FEB">February</option>
+					<option value="MAR">March</option>
+					<option value="APR">April</option>
+					<option value="MAY">May</option>
+					<option value="JUN">June</option>
+					<option value="JUL">July</option>
+					<option value="AUG">August</option>
+					<option value="SEP">September</option>
+					<option value="OCT">October</option>
+					<option value="NOV">November</option>
+					<option value="DEC">December</option>
+				</select>
+				<input id="year" type="number">
+			</form>
+			<noscript>
+				<p>
+					JavaScript must be enabled to use this calendar.
+				</p>
+			</noscript>
+			<table id="calendar">
+				<tr>
+					<th>Mon</th>
+					<th>Tue</th>
+					<th>Wed</th>
+					<th>Thu</th>
+					<th>Fri</th>
+					<th>Sat</th>
+					<th>Sun</th>
+				</tr>
+				<tr>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+				</tr>
+				<tr>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+				</tr>
+				<tr>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+				</tr>
+				<tr>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+				</tr>
+				<tr>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+				</tr>
+				<tr>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+					<td class="disabled"></td>
+				</tr>
+			</table>
+			<p role="contentinfo">Copyright &copy; 2023 Chris Roberts</p>
+		</main>
+	</body>
+</html>

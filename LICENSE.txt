@@ -1,0 +1,36 @@
+krobbi.github.io Website License
+
+This license text covers the website hosted at https://krobbi.github.io/
+('The Website'), the repository containing this license text, which is hosted at
+https://github.com/krobbi/krobbi.github.io and is used to generate The Website
+('The Repository' or 'THE SOFTWARE'), and the files which are part of
+The Repository and appear in The Website ('The Assets').
+
+The Assets consist of all files in the following directory paths
+(including subdirectories) of The Repository:
+* assets/
+* content/
+* static/
+
+The following copyright notice applies to The Website and The Assets:
+Copyright (c) 2026 Chris Roberts
+
+The above copyright notice does not apply to content which is linked from or
+embedded into The Website from other websites.
+
+Permission is granted to any person obtaining a copy of The Repository to use
+The Repository for any purpose, subject to the following conditions:
+
+The Assets and this license text MUST NOT be included in any copies of
+The Repository.
+
+All existing references to the copyright holder, including copyright notices,
+MUST be removed from any copies of The Repository.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
