@@ -2,9 +2,9 @@
 ignore/
 
 # Hugo:
+assets/jsconfig.json
 public/
 resources/_gen/
-assets/jsconfig.json
 .hugo_build.lock
 hugo.darwin
 hugo.exe
