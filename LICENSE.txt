@@ -7,25 +7,28 @@ https://github.com/krobbi/krobbi.github.io and is used to generate The Website
 The Repository and appear in The Website ('The Assets').
 
 The Assets consist of all files in the following directory paths
-(including subdirectories) of The Repository:
+(including subdirectories) of the original copy of The Repository:
 * assets/
 * content/
 * static/
 
 The following copyright notice applies to The Website and The Assets:
+
 Copyright (c) 2026 Chris Roberts
+All rights reserved.
 
 The above copyright notice does not apply to content which is linked from or
 embedded into The Website from other websites.
 
 Permission is granted to any person obtaining a copy of The Repository to use
-The Repository for any purpose, subject to the following conditions:
+The Repository for any legal purpose, subject to the following conditions:
 
-The Assets and this license text MUST NOT be included in any copies of
-The Repository.
+Published copies of The Repository MUST NOT include any of the following:
+* The Assets or modified versions of The Assets.
+* References to the copyright holder of the above copyright notice.
+* This license text.
 
-All existing references to the copyright holder, including copyright notices,
-MUST be removed from any copies of The Repository.
+The Assets MUST NOT be used for training generative AI models.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
